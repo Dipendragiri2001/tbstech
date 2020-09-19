@@ -61,6 +61,9 @@ namespace TBSTech
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                name: "areas",
+                pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();

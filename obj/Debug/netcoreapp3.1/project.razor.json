@@ -14392,18 +14392,33 @@
   "RootNamespace": "TBSTech",
   "Documents": [
     {
-      "FilePath": "/home/komal/Documents/tbstechnology/Areas/Identity/Pages/_ViewStart.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FilePath": "/home/komal/Documents/tbstechnology/Areas/Admin/Views/_ViewStart.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/komal/Documents/tbstechnology/Views/Admin/_Layout.cshtml",
-      "TargetPath": "Views\\Admin\\_Layout.cshtml",
+      "FilePath": "/home/komal/Documents/tbstechnology/Areas/Admin/Views/Home/Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/komal/Documents/tbstechnology/Areas/Admin/Views/Product/Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Product\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "/home/komal/Documents/tbstechnology/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/komal/Documents/tbstechnology/Areas/Admin/Views/Product/New.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Product\\New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/komal/Documents/tbstechnology/Areas/Admin/Views/_ViewImports.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14427,13 +14442,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/komal/Documents/tbstechnology/Views/_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FilePath": "/home/komal/Documents/tbstechnology/Areas/Admin/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/komal/Documents/tbstechnology/Views/Admin/Index.cshtml",
-      "TargetPath": "Views\\Admin\\Index.cshtml",
+      "FilePath": "/home/komal/Documents/tbstechnology/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {

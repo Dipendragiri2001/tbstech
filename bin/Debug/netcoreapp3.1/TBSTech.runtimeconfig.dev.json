@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Komal-PC\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Komal-PC\\.nuget\\packages"
+    ]
+  }
+}

@@ -23,6 +23,16 @@ a {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+.c-nav{
+  margin-left: auto;
+}
+.c-nav li{
+  border-bottom: 2px solid #fff;
+}
+.c-nav li:hover{
+  border-bottom: 2px solid #1b6ec2;
+  transition: ease-in 0.2s;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */

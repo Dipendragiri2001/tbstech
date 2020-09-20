@@ -75,9 +75,6 @@
 /home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/TBSTech.TagHelpers.input.cache
 /home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/TBSTech.TagHelpers.output.cache
 /home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/TBSTech.RazorCoreGenerate.cache
-/home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/_ViewStart.cshtml.g.cs
-/home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Views/Admin/Index.cshtml.g.cs
-/home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Views/Admin/_Layout.cshtml.g.cs
 /home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
 /home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
 /home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
@@ -95,6 +92,12 @@
 /home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/TBSTech.pdb
 /home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/TBSTech.genruntimeconfig.cache
 /home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Views/Home/Members.cshtml.g.cs
+/home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Areas/Admin/Views/Home/Index.cshtml.g.cs
+/home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Areas/Admin/Views/Product/Index.cshtml.g.cs
+/home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Areas/Admin/Views/Product/New.cshtml.g.cs
+/home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Areas/Admin/Views/Shared/_Layout.cshtml.g.cs
+/home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Areas/Admin/Views/_ViewImports.cshtml.g.cs
+/home/komal/Documents/tbstechnology/obj/Debug/netcoreapp3.1/Razor/Areas/Admin/Views/_ViewStart.cshtml.g.cs
 C:\Users\Dipen\Desktop\TBSTech\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Dipen\Desktop\TBSTech\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Dipen\Desktop\TBSTech\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -171,6 +174,12 @@ C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\TBSTech.RazorAssemblyInfo
 C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\TBSTech.TagHelpers.input.cache
 C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\TBSTech.TagHelpers.output.cache
 C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\TBSTech.RazorCoreGenerate.cache
+C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
+C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Index.cshtml.g.cs
+C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\New.cshtml.g.cs
+C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
+C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
 C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Views\Home\Members.cshtml.g.cs
 C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -188,9 +197,3 @@ C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\staticwebassets\TBSTech.S
 C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\TBSTech.dll
 C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\TBSTech.pdb
 C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\TBSTech.genruntimeconfig.cache
-C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
-C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
-C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
-C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Index.cshtml.g.cs
-C:\Users\Dipen\Desktop\TBSTech\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\New.cshtml.g.cs

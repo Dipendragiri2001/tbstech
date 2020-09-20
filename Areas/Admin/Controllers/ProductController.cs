@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace TBSTech.Areas.Identity.Pages.Controllers
+namespace TBSTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("admin/[controller]")]
     public class ProductController : Controller
     {
         public ProductController()

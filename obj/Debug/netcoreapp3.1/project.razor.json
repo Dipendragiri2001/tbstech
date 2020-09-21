@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Dipen\\Desktop\\TBSTech\\TBSTech.csproj",
+  "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\TBSTech.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14392,6 +14392,7 @@
   "RootNamespace": "TBSTech",
   "Documents": [
     {
+<<<<<<< HEAD
       "FilePath": "c:\\Users\\Dipen\\Desktop\\TBSTech\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -14413,15 +14414,43 @@
     },
     {
       "FilePath": "c:\\Users\\Dipen\\Desktop\\TBSTech\\Views\\Shared\\Error.cshtml",
+=======
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Views\\Home\\Members.cshtml",
+      "TargetPath": "Views\\Home\\Members.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Views\\Shared\\Error.cshtml",
+>>>>>>> 525c12e485af9fc1d7f1fb4e6f259c8882014ba0
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
+<<<<<<< HEAD
       "FilePath": "c:\\Users\\Dipen\\Desktop\\TBSTech\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+=======
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+>>>>>>> 525c12e485af9fc1d7f1fb4e6f259c8882014ba0
       "TargetPath": "Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
+<<<<<<< HEAD
       "FilePath": "c:\\Users\\Dipen\\Desktop\\TBSTech\\Areas\\Admin\\Views\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Admin\\Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -14459,6 +14488,45 @@
     {
       "FilePath": "c:\\Users\\Dipen\\Desktop\\TBSTech\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+=======
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Product\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Areas\\Admin\\Views\\Product\\New.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Product\\New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Komal-PC\\Documents\\tbstechnology\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Home\\Index.cshtml",
+>>>>>>> 525c12e485af9fc1d7f1fb4e6f259c8882014ba0
       "FileKind": "mvc"
     }
   ],

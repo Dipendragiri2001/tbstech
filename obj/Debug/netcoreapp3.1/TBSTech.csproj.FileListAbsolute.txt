@@ -296,3 +296,6 @@ C:\Users\Komal-PC\Documents\tbstechnology\obj\Debug\netcoreapp3.1\staticwebasset
 C:\Users\Komal-PC\Documents\tbstechnology\obj\Debug\netcoreapp3.1\TBSTech.dll
 C:\Users\Komal-PC\Documents\tbstechnology\obj\Debug\netcoreapp3.1\TBSTech.pdb
 C:\Users\Komal-PC\Documents\tbstechnology\obj\Debug\netcoreapp3.1\TBSTech.genruntimeconfig.cache
+C:\Users\Dipen\Desktop\TBSTech\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Users\Dipen\Desktop\TBSTech\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Dipen\Desktop\TBSTech\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll

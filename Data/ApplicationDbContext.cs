@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TBSTech.Models;
 
 namespace TBSTech.Data
 {
@@ -12,5 +13,6 @@ namespace TBSTech.Data
             : base(options)
         {
         }
+        public DbSet<Product> Products { get; set; }
     }
 }

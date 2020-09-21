@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Komal-PC\\Documents\\tbstechnology\\TBSTech.csproj": {}
+    "C:\\Users\\Dipen\\Desktop\\TBSTech\\TBSTech.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Komal-PC\\Documents\\tbstechnology\\TBSTech.csproj": {
+    "C:\\Users\\Dipen\\Desktop\\TBSTech\\TBSTech.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Komal-PC\\Documents\\tbstechnology\\TBSTech.csproj",
+        "projectUniqueName": "C:\\Users\\Dipen\\Desktop\\TBSTech\\TBSTech.csproj",
         "projectName": "TBSTech",
-        "projectPath": "C:\\Users\\Komal-PC\\Documents\\tbstechnology\\TBSTech.csproj",
-        "packagesPath": "C:\\Users\\Komal-PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Komal-PC\\Documents\\tbstechnology\\obj\\",
+        "projectPath": "C:\\Users\\Dipen\\Desktop\\TBSTech\\TBSTech.csproj",
+        "packagesPath": "C:\\Users\\Dipen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dipen\\Desktop\\TBSTech\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Komal-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Dipen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,7 +59,11 @@
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
-              "version": "[3.1.6, )"
+              "version": "[3.1.8, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.2.0, )"
             }
           },
           "imports": [
@@ -75,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

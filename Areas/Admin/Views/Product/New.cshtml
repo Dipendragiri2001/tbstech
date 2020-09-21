@@ -1,3 +1,4 @@
+ @model TBSTech.Models.Product
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -30,37 +31,28 @@
                   <i class="fas fa-minus"></i></button>
               </div>
             </div>
+            <form method="POST" asp-action="New" asp-controller="Product" enctype="multipart/form-data"> 
             <div class="card-body">
+              
+              <input type="hidden" asp-for="Id">
               <div class="form-group">
-                <label for="inputName">Project Name</label>
-                <input type="text" id="inputName" class="form-control">
+                <label asp-for="ProductName">Product Name</label>
+                <input type="text" asp-for="ProductName" id="inputName" class="form-control">
               </div>
               <div class="form-group">
-                <label for="inputDescription">Project Description</label>
-                <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+                <label asp-for="Description">Product Description</label>
+                <textarea asp-for="Description" id="inputDescription" class="form-control" rows="4"></textarea>
               </div>
               <div class="form-group">
-                <label for="inputStatus">Status</label>
-                <select class="form-control custom-select">
-                  <option selected disabled>Select one</option>
-                  <option>On Hold</option>
-                  <option>Canceled</option>
-                  <option>Success</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="inputClientCompany">Client Company</label>
-                <input type="text" id="inputClientCompany" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputProjectLeader">Project Leader</label>
-                <input type="text" id="inputProjectLeader" class="form-control">
+                <label >Product Image</label>
+                <input  type="file" accept="image/*" name="file" id="file" class="form-control">
               </div>
                 <div class="form-group">
-                  <a href="#" class="btn btn-secondary">Cancel</a>
                    <input type="submit" value="Create new Porject" class="btn btn-success float-right">
                  </div>
+              
             </div>
+            </form>
             <!-- /.card-body -->
           </div>
           

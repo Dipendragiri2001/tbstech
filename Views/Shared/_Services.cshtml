@@ -1,16 +1,17 @@
 @inject IServiceRepository service
 @{
-    var serv = @service.Collection().Take(5);
+    var serv = @service.Collection();
 }
 
+
+  
 @foreach (var item in serv)
 {
-    <ul class="dropdown-menu">
-
        <li class="nav-item">
            <a href="members.html" class="nav-link">
                       @item.ServiceName
                 </a>
        </li>
-</ul>
 }
+
+

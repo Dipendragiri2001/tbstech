@@ -315,10 +315,7 @@ Navbar Area
   margin: auto;
   z-index: 999;
   background-color: #4356d6 !important;
-  -webkit-animation: 900ms ease-in-out 5s normal none 1 running fadeInDown;
-          animation: 900ms ease-in-out 5s normal none 1 running fadeInDown;
-  -webkit-transition: 0.9s;
-  transition: 0.9s;
+  transition: ease all 0.3s;
   width: 100% !important;
 }
 
@@ -776,6 +773,24 @@ Main Banner Style
 /*================================
 Main Banner Style End
 ===================================*/
+.main-service{
+  position: relative;
+  text-align: center;
+  padding: 40px 30px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: block;
+  z-index: 1;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+.main-service img{
+ width: 100px;
+ margin-bottom: 5px;
+}
 /*=================================
 Brand Area 
 ====================================*/
@@ -974,6 +989,35 @@ Service Area
   z-index: 1;
   border-radius: 15px;
   margin-bottom: 30px;
+  height: 35rem;
+}
+.service-card p{
+  height: 5rem;
+  overflow: hidden;
+  margin-bottom: 20px !important;
+}
+.service-card .default-btn{
+  cursor: pointer;
+  background-color: #4356d6;
+  border: 1px solid #fff;
+}
+.service-card .default-btn a{
+  text-decoration: none;
+  color: #fff;
+}
+.service-card .default-btn:hover a{
+  text-decoration: none;
+  color: #4356d6;
+  
+}
+.service-card .default-btn:hover{
+  cursor: pointer;
+  background-color: #fff;
+  color: #4356d6;
+  transition: ease all 0.1s;
+}
+.service-card img{
+  object-fit: cover;
 }
 
 .service-card:hover::before {

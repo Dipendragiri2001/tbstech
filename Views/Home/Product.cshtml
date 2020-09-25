@@ -1,14 +1,13 @@
 @model List<TBSTech.Models.Product>
 
-<!-- Service Area -->
+
         <section class="service-area pt-100 pb-70">
             <div class="container">
                 <div class="scetion-title text-center">
-                    <span>Our Service</span>
-                    <h2>We Provide Fastest & Unique Business Growing Service</h2>
+                    <span>Our Products</span>
+                    <h2>We Provide various Products.</h2>
                     <p>
-                        It is a long established fact that a reader will be distracted by 
-                        the readable content of a page when looking at its layout.
+                        is minima provident alias, ipsa quibusdam nemo culpa distinctio suscipit dolorum. Rerum, unde. Voluptatibus at veritatis quo consectetur.
                     </p>
                 </div>
                 <div>
@@ -22,15 +21,15 @@
                 
                     <div class="col-lg-4 col-sm-6">
                         <div class="service-card">
-                            <a href="service-details.html">
-                                <img src="~/ProductImages/@item.ImageUrl" alt="Images">
-                            </a>
-                            <a href="service-details.html">
+                                <img src="~/ProductImages/@item.ImageUrl" alt="Images" height="300px">
+                            
+                            
                                 <h3>@item.ProductName</h3>
-                            </a>
+                            
                             <p>
                                 @item.Description
                             </p>
+                            <div class="default-btn"><a href="">See More</a></div>
                         </div>
                     </div>
                 
@@ -40,32 +39,7 @@
 
                     
         </section>
-        <!-- Service Area End -->
+       
 
 
-        <!-- Submission Area -->
-        <div class="submission-area ptb-100">
-            <div class="container">
-                <div class="submission-title">
-                    <h2>Know Your Website Ranking</h2>
-                </div>
-                <form class="submission-form">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-6">
-                            <div class="form-group">
-								<input type="text" class="form-control" id="website" placeholder="Your website">
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="form-group border-line">
-								<input type="text" class="form-control" id="email" placeholder="Email">
-							</div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 offset-md-5 offset-lg-0">
-                            <button type="submit" class="default-btn">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- Submission Area End -->
+        

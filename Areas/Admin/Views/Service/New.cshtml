@@ -33,6 +33,7 @@
             </div>
             <form method="POST" asp-action="New" asp-controller="Service" enctype="multipart/form-data"> 
             <div class="card-body">
+              <input type="hidden" value ="@ViewBag.Message" name="message" id="message"class="form-control" />
               
               <input type="hidden" asp-for="Id">
               <div class="form-group">

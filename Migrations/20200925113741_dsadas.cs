@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TBSTech.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class dsadas : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,6 +45,39 @@ namespace TBSTech.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Courses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CourseName = table.Column<string>(nullable: true),
+                    CourseLink = table.Column<string>(nullable: true),
+                    CourseDescription = table.Column<string>(nullable: true),
+                    CourseStartTime = table.Column<DateTime>(nullable: false),
+                    CourseEndTime = table.Column<DateTime>(nullable: false),
+                    ImageUrl = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Courses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Members",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    MemberName = table.Column<string>(nullable: true),
+                    imageUrl = table.Column<string>(nullable: true),
+                    Position = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Members", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -239,6 +272,12 @@ namespace TBSTech.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Courses");
+
+            migrationBuilder.DropTable(
+                name: "Members");
 
             migrationBuilder.DropTable(
                 name: "Products");

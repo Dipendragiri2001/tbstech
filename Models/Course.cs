@@ -2,7 +2,7 @@ using System;
 
 namespace TBSTech.Models
 {
-    public class Training
+    public class Course
     {
         public int Id { get; set; }
         public string CourseName { get; set; }
@@ -10,5 +10,6 @@ namespace TBSTech.Models
         public string CourseDescription { get; set; }
         public DateTime CourseStartTime { get; set; }
         public DateTime CourseEndTime { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

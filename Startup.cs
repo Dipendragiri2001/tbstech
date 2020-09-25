@@ -37,7 +37,7 @@ namespace TBSTech
            services.AddRazorPages();
            services.AddScoped<IProductRepository,ProductRepository>();
            services.AddScoped<IServiceRepository,ServiceRepository>();
-           services.AddScoped<ITrainingRepository,TrainingRepository>();
+           services.AddScoped<ICourseRepository,CourseRepository>();
 
         }
 

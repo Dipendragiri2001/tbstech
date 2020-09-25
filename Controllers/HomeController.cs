@@ -16,9 +16,11 @@ namespace TBSTech.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IProductRepository _productRepo;
         private readonly IServiceRepository _serviceRepo;
+        private readonly ICourseRepository _courseRepo;
 
-        public HomeController(ILogger<HomeController> logger, IProductRepository productRepo, IServiceRepository serviceRepo)
+        public HomeController(ILogger<HomeController> logger, ICourseRepository courseRepo, IProductRepository productRepo, IServiceRepository serviceRepo)
         {
+            _courseRepo = courseRepo;
             _serviceRepo = serviceRepo;
             _logger = logger;
             _productRepo = productRepo;
@@ -28,21 +30,30 @@ namespace TBSTech.Controllers
         {
             var product = _productRepo.Collection();
             var service = _serviceRepo.Collection();
-            List<ProductServiceCoursesViewModel> viewModel = new List<ProductServiceCoursesViewModel>();
-            foreach(var item in product)
+            var course = _courseRepo.Collection();
+            List<ProductServiceCoursesMemberViewModel> viewModel = new List<ProductServiceCoursesMemberViewModel>();
+            foreach (var item in product)
             {
-                viewModel.Add(new ProductServiceCoursesViewModel()
+                viewModel.Add(new ProductServiceCoursesMemberViewModel()
                 {
                     ProductName = item.ProductName,
-                    ProductDescription = item.Description    
+                    ProductDescription = item.Description
                 });
             }
-            foreach(var item1 in service)
+            foreach (var item1 in service)
             {
-                 viewModel.Add(new ProductServiceCoursesViewModel()
+                viewModel.Add(new ProductServiceCoursesMemberViewModel()
                 {
                     ServiceDescription = item1.Description,
-                    ServiceName = item1.ServiceName    
+                    ServiceName = item1.ServiceName
+                });
+            }
+            foreach (var item2 in course)
+            {
+                viewModel.Add(new ProductServiceCoursesMemberViewModel()
+                {
+                    CourseDescription = item2.CourseName,
+                    CourseName = item2.CourseDescription
                 });
             }
             return View(viewModel);

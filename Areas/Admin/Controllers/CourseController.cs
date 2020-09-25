@@ -6,34 +6,32 @@ using TBSTech.Repository;
 
 namespace TBSTech.Areas.Admin.Controllers
 {
-    public class MemberController : BaseController
+    public class CourseController : BaseController
     {
-        private readonly IMemberRepository _memberRepo;
-        public MemberController(IMemberRepository memberRepo)
+        private readonly ICourseRepository _courseRepo;
+        public CourseController(ICourseRepository courseRepo)
         {
-            _memberRepo = memberRepo;
+            _courseRepo = courseRepo;
 
         }
-
         public IActionResult Index()
         {
-
             return View();
         }
-        public IActionResult New()
+         public IActionResult New()
         {
             ViewBag.Message = "New";
             return View();
         }
         [HttpPost]
-        public IActionResult New(Member model,IFormFile file,string message)
+        public IActionResult New(Course model,IFormFile file,string message)
         {
-             string folderName = "MemberImages";
+            string folderName = "CourseImages";
             string newImage;
-            
+
             if (message.Equals("Update"))
             {
-                string oldImage = _memberRepo.GetSingle(x => x.Id == model.Id).imageUrl;
+                string oldImage = _courseRepo.GetSingle(x => x.Id == model.Id).ImageUrl;
                 if (file != null)
                 {
 
@@ -41,34 +39,35 @@ namespace TBSTech.Areas.Admin.Controllers
                     string fileName = Guid.NewGuid().ToString() + file.FileName;
                     newImage = fileName;
                     UpdatePhoto(file, folderName, fileName, oldImage);
-                    model.imageUrl = newImage;
+                    model.ImageUrl = newImage;
 
-                    _memberRepo.Update(model);
-                }else{
-                model.imageUrl = oldImage;
-                _memberRepo.Update(model);
+                    _courseRepo.Update(model);
+                }
+                else
+                {
+                    model.ImageUrl = oldImage;
+                    _courseRepo.Update(model);
                 }
             }
             else if (message.Equals("New"))
             {
                 string fileName = Guid.NewGuid().ToString() + file.FileName;
 
-                model.imageUrl = UploadPhoto(file, folderName,fileName);
-                _memberRepo.Insert(model);
+                model.ImageUrl = UploadPhoto(file, folderName, fileName);
+                _courseRepo.Insert(model);
 
             }
 
 
-            _memberRepo.Commit();
+            _courseRepo.Commit();
 
             return RedirectToAction(nameof(Index));
 
-
         }
-        public IActionResult Update(int id,IFormFile file)
+        public IActionResult Update(int id, IFormFile file)
         {
               ViewBag.Message = "Update";
-            var data = _memberRepo.GetSingle(x => x.Id == id);
+            var data = _courseRepo.GetSingle(x => x.Id == id);
             return View(nameof(New), data);
         }
     }

@@ -4,6 +4,7 @@ namespace TBSTech.Models
     {
         public int Id { get; set; }
         public string MemberName { get; set; }
+        public string imageUrl { get; set; }
         public string Position { get; set; }
     }
 }

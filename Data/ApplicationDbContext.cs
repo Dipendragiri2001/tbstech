@@ -15,6 +15,7 @@ namespace TBSTech.Data
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Service> Services {get;set;}
-        public DbSet<Training> Trainings { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Member> Members { get; set; }
     }
 }

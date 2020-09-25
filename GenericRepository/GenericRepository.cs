@@ -57,7 +57,7 @@ namespace TBSTech.GenericRepository
 
         public void Update(T t)
         {
-            _context.Set<T>().Remove(t);
+            _context.Set<T>().Update(t);
         }
     }
 }

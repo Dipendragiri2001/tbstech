@@ -36,6 +36,9 @@ namespace TBSTech
             services.AddControllersWithViews();
            services.AddRazorPages();
            services.AddScoped<IProductRepository,ProductRepository>();
+           services.AddScoped<IServiceRepository,ServiceRepository>();
+           services.AddScoped<ITrainingRepository,TrainingRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

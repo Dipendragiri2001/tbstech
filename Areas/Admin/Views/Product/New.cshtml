@@ -34,6 +34,8 @@
             <form method="POST" asp-action="New" asp-controller="Product" enctype="multipart/form-data"> 
             <div class="card-body">
               
+              <input type="hidden" value ="@ViewBag.Message" name="message" id="message"class="form-control" />
+              
               <input type="hidden" asp-for="Id">
               <div class="form-group">
                 <label asp-for="ProductName">Product Name</label>
@@ -48,7 +50,7 @@
                 <input  type="file" accept="image/*" name="file" id="file" class="form-control">
               </div>
                 <div class="form-group">
-                   <input type="submit" value="Create new Porject" class="btn btn-success float-right">
+                   <input type="submit" value="Create Product" class="btn btn-success float-right">
                  </div>
               
             </div>

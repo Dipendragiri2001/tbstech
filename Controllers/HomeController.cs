@@ -53,7 +53,8 @@ namespace TBSTech.Controllers
                 viewModel.Add(new ProductServiceCoursesMemberViewModel()
                 {
                     CourseName = item2.CourseName,
-                    CourseDescription = item2.CourseDescription
+                    CourseDescription = item2.CourseDescription,
+                   
                 });
             }
             return View(viewModel);

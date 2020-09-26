@@ -122,12 +122,12 @@ the field of Information, Communication and Technologies.
                         </div>
                     </div>
                     </div>
-<video width="49.5%" controls autoplay>
+<video width="49.5%" controls >
     Our Services
   <source src="~/CompanyWebsite/assets/vdo/courses.mp4" type="video/mp4">
   Your browser does not support HTML video.
 </video>
-<video width="49.5%" controls autoplay>
+<video width="49.5%" controls >
   <source src="~/CompanyWebsite/assets/vdo/products.mp4" type="video/mp4">
   Your browser does not support HTML video.
 </video>
@@ -142,72 +142,8 @@ the field of Information, Communication and Technologies.
                 </div>
 
                 <div class="client-slider owl-carousel owl-theme">
-                    <div class="client-item">
-                        <div class="client-item-img">
-                            <img src="~/CompanyWebsite/assets/img/testimonial/t1.png" alt="Testimonial Images">
-                        </div>
-                        <h3>John Doe</h3>
-                        <p>
-                            CEO
-                        </p>
-                         <div class="team-social">
-                                                <a href="#" target="_blank" >
-                                                    <i class='bx bxl-facebook'></i>
-                                                </a><a href="#" target="_blank" >
-                                                    <i class='bx bxl-instagram' ></i>
-                                                </a>
-                                            </div>
-                    </div>
-
-                    <div class="client-item">
-                        <div class="client-item-img">
-                            <img src="~/CompanyWebsite/assets/img/testimonial/t4.png" alt="Testimonial Images">
-                        </div>
-                        <h3>Knot Doe</h3>
-                        <p>
-                            Frontend Developer
-                        </p>
-                         <div class="team-social">
-                                                <a href="#" target="_blank" >
-                                                    <i class='bx bxl-facebook'></i>
-                                                </a><a href="#" target="_blank" >
-                                                    <i class='bx bxl-instagram' ></i>
-                                                </a>
-                                            </div>
-                    </div>
-
-                    <div class="client-item">
-                        <div class="client-item-img">
-                            <img src="~/CompanyWebsite/assets/img/testimonial/t5.png" alt="Testimonial Images">
-                        </div>
-                        <h3>Team Cook</h3>
-                        <p>
-                            Backend Developer
-                        </p>
-                         <div class="team-social">
-                                                <a href="#" target="_blank" >
-                                                    <i class='bx bxl-facebook'></i>
-                                                </a><a href="#" target="_blank" >
-                                                    <i class='bx bxl-instagram' ></i>
-                                                </a>
-                                            </div>
-                    </div>
-                    <div class="client-item">
-                        <div class="client-item-img">
-                            <img src="~/CompanyWebsite/assets/img/testimonial/t3.png" alt="Testimonial Images">
-                        </div>
-                        <h3>Evanaa</h3>
-                        <p>
-                            Graphics Designer
-                        </p>
-                         <div class="team-social">
-                                                <a href="#" target="_blank" >
-                                                    <i class='bx bxl-facebook'></i>
-                                                </a><a href="#" target="_blank" >
-                                                    <i class='bx bxl-instagram' ></i>
-                                                </a>
-                                    </div>
-                    </div>
+                   
+                 @await Html.PartialAsync("_Members")
                 </div>
             </div>
         </div>

@@ -1,0 +1,25 @@
+@inject IMemberRepository _Members
+@{
+    var member = _Members.Collection();
+}
+@foreach (var item in member)
+{
+    
+
+ <div class="client-item">
+                        <div class="client-item-img">
+                            <img src="~/MemberImages/@item.imageUrl" alt="Testimonial Images">
+                        </div>
+                        <h3>@item.MemberName</h3>
+                        <p>
+                            @item.Position
+                        </p>
+                         <div class="team-social">
+                                                <a href="#" target="_blank" >
+                                                    <i class='bx bxl-facebook'></i>
+                                                </a><a href="#" target="_blank" >
+                                                    <i class='bx bxl-instagram' ></i>
+                                                </a>
+                                            </div>
+                    </div>
+}

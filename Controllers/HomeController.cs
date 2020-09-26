@@ -69,9 +69,10 @@ namespace TBSTech.Controllers
             var data = _courseRepo.Collection();
             return View(data);
         }
-        public IActionResult ProductDetail()
+        public IActionResult ProductDetail(int id)
         {
-            return View();
+            var singleProduct = _productRepo.GetSingle(x=>x.Id == id);
+            return View(singleProduct);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

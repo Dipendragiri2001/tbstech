@@ -1,0 +1,10 @@
+@inject IBannerRepository bannerRepo
+@{
+    var banner = bannerRepo.Collection();
+}
+@foreach (var item in banner)
+{
+    
+
+ <img src="~/BannerImages/@item.ImageUrl" alt="Banner Shape">
+}

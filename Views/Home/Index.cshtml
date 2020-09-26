@@ -27,11 +27,7 @@ the field of Information, Communication and Technologies.
 
                     <div class="col-lg-6">
                         <div class="banner-img-3">
-                            <video width="100%" controls autoplay>
-    Our Services
-  <source src="~/CompanyWebsite/assets/vdo/courses.mp4" type="video/mp4">
-  Your browser does not support HTML video.
-</video>
+                            @await Html.PartialAsync("_Banner")
                             <div class="banner-img-shape">
                                 <img src="~/CompanyWebsite/assets/img/shape/shape-home3.png" alt="Banner Shape">
                             </div>
@@ -122,15 +118,7 @@ the field of Information, Communication and Technologies.
                         </div>
                     </div>
                     </div>
-<video width="49.5%" controls >
-    Our Services
-  <source src="~/CompanyWebsite/assets/vdo/courses.mp4" type="video/mp4">
-  Your browser does not support HTML video.
-</video>
-<video width="49.5%" controls >
-  <source src="~/CompanyWebsite/assets/vdo/products.mp4" type="video/mp4">
-  Your browser does not support HTML video.
-</video>
+                     @await Html.PartialAsync("_Video")
                     <div class="client-area pb-70">
                 <div class="container-fluid p-0">
                 <div class="team-margin scetion-title text-center">

@@ -1,0 +1,12 @@
+@inject IVideoRepository _videoRepo
+@{
+    var video = _videoRepo.Collection();
+}
+
+@foreach (var item in video)
+{
+<video width="49.5%" controls >
+  <source src="~/Videos/@item.VideoUrl" type="video/mp4">
+  Your browser does not support HTML video.
+</video>
+}

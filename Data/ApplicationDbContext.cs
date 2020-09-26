@@ -18,5 +18,7 @@ namespace TBSTech.Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Video> Videos { get; set; }
+        public DbSet<Banner> Banners { get; set; }
+
     }
 }

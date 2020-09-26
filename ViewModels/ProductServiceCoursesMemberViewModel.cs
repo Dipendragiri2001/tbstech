@@ -11,6 +11,7 @@ namespace TBSTech.ViewModels
         public string CourseDescription { get; set; }
         public string MemberName { get; set; }
         public string MemberPosition { get; set; }
+        public string VideoUrl{get;set;}
      
          
     }

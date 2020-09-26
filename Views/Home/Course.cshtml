@@ -1,6 +1,7 @@
 ﻿@model List<TBSTech.Models.Course>
 @{
     ViewData["Title"] = "Courses";
+    var N=0;
 }
 
 <section class="service-area pt-100 pb-70">
@@ -13,7 +14,8 @@
                     </p>
                 </div><div class="course-container">
                   @foreach (var item2 in Model){
-                    <button class="course">@item2.CourseName</button>
+                    N++;
+                    <button class="course">@N > @item2.CourseName</button>
 <div class="panel">
 
   <p>@item2.CourseDescription</p>

@@ -978,7 +978,14 @@ Service Area
   z-index: 1;
   border-radius: 15px;
   margin-bottom: 30px;
-  height: 35rem;
+  height: 32rem;
+}
+.service-card h4{
+  margin-top: 10px;
+  color: #4356d6;
+}
+.service-card:hover h4{
+  color: #fff;
 }
 .service-card p{
   height: 5rem;

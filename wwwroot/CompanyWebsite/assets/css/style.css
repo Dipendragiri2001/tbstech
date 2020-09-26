@@ -2707,6 +2707,10 @@ Client Area
   margin: auto;
   width: 150px;
   height: 150px;
+<<<<<<< HEAD
+=======
+  object-fit: cover;
+>>>>>>> f2419561b37e3436194ffed1f91362dfc90fba83
   border-radius: 50%;
 }
 

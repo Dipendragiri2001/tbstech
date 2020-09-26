@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,8 @@ using TBSTech.Repository;
 namespace TBSTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
+
     public class ProductController : BaseController
     {
         private readonly IProductRepository _productRepo;

@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TBSTech.Models;
@@ -6,6 +7,8 @@ using TBSTech.Repository;
 
 namespace TBSTech.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize]
     public class CourseController : BaseController
     {
         private readonly ICourseRepository _courseRepo;
@@ -16,7 +19,8 @@ namespace TBSTech.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var data = _courseRepo.Collection();
+            return View(data);
         }
          public IActionResult New()
         {
@@ -69,6 +73,15 @@ namespace TBSTech.Areas.Admin.Controllers
               ViewBag.Message = "Update";
             var data = _courseRepo.GetSingle(x => x.Id == id);
             return View(nameof(New), data);
+        }
+        public IActionResult Delete(int id,IFormFile file)
+        {
+            string folderName = "CourseImages";
+            var courseToDelete= _courseRepo.GetSingle(x=>x.Id==id);
+            DeletePhoto(file,folderName,courseToDelete.ImageUrl);
+            _courseRepo.Delete(x=>x.Id == id);
+            _courseRepo.Commit();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

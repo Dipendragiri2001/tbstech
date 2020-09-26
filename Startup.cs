@@ -38,6 +38,10 @@ namespace TBSTech
            services.AddScoped<IProductRepository,ProductRepository>();
            services.AddScoped<IServiceRepository,ServiceRepository>();
            services.AddScoped<ICourseRepository,CourseRepository>();
+           services.AddScoped<IMemberRepository,MemberRepository>();
+           services.AddScoped<IVideoRepository,VideoRepository>();
+
+
 
         }
 

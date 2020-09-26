@@ -31,7 +31,7 @@
                   <i class="fas fa-minus"></i></button>
               </div>
             </div>
-            <form method="POST" asp-action="New" asp-controller="Member" enctype="multipart/form-data"> 
+            <form method="POST" asp-action="New" asp-controller="Course" enctype="multipart/form-data"> 
             <div class="card-body">
               
               <input type="hidden" value ="@ViewBag.Message" name="message" id="message"class="form-control" />
@@ -46,7 +46,7 @@
                 <input asp-for="CourseDescription" id="inputDescription" class="form-control" >
               </div>
               <div class="form-group">
-                <label asp-for="CourseLink">Course Description</label>
+                <label asp-for="CourseLink">Course Link</label>
                 <input asp-for="CourseLink" id="inputDescription" class="form-control" >
               </div>
               <div class="form-group">

@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TBSTech.Models;
@@ -7,6 +8,8 @@ using TBSTech.Repository;
 namespace TBSTech.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
+
     public class ServiceController : BaseController
     {
         private readonly IServiceRepository _serviceRepo;

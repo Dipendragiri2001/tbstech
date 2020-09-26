@@ -1,8 +1,10 @@
 @inject IServiceRepository service
 @{
-    var serv = @service.Collection().Take(5);
+    var serv = @service.Collection();
 }
 
+
+  
 @foreach (var item in serv)
 
  {  

@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TBSTech.Models;
@@ -6,6 +7,9 @@ using TBSTech.Repository;
 
 namespace TBSTech.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize]
+
     public class MemberController : BaseController
     {
         private readonly IMemberRepository _memberRepo;
@@ -17,8 +21,8 @@ namespace TBSTech.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-
-            return View();
+            var data = _memberRepo.Collection();
+            return View(data);
         }
         public IActionResult New()
         {

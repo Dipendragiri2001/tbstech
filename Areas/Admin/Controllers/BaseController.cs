@@ -43,5 +43,18 @@ namespace TBSTech.Areas.Admin.Controllers
             return "OK";
 
         }
+        public string DeletePhoto(IFormFile file,string folderName,string ImageFile)
+        {
+            if(ImageFile!=null)
+            {
+                var path = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(),"wwwroot/"+ folderName,ImageFile);
+                if(System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
+            }
+            return "Ok";
+
+        }
     }
 }

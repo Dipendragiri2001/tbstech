@@ -4709,3 +4709,33 @@ Animation CSS
 Animation CSS End
 ====================================*/
 /*# sourceMappingURL=style.css.map */
+
+/* ACCORDIAN */
+.course-container{
+  margin-top: 20px;
+}
+.course {
+  background-color: #eee;
+  color: #000;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.on, .course:hover {
+  background-color:#4356d6;
+  color: #fff;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}

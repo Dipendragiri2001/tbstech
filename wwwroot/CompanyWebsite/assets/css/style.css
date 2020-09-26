@@ -749,25 +749,13 @@ Main Banner Style
 .banner-social-icon .banner-icon1 {
   position: absolute;
   top: 25%;
-  right: 20%;
-}
-
-.banner-social-icon .banner-icon2 {
-  position: absolute;
-  top: 40%;
-  right: 8%;
-}
-
-.banner-social-icon .banner-icon3 {
-  position: absolute;
-  top: 42%;
-  right: 25%;
+  right: 10%;
 }
 
 .banner-social-icon .banner-icon4 {
   position: absolute;
-  top: 57%;
-  right: 15%;
+  top: 43%;
+  right: 1%;
 }
 
 /*================================
@@ -2664,9 +2652,10 @@ Client Area
 
 .client-area .client-slider .center .client-item {
   background-color: #4356d6;
+  background-image: linear-gradient(to right,#4356d6 , #0924d6);
 }
 
-.client-area .client-slider .center .client-item::before {
+/* .client-area .client-slider .center .client-item::before {
   content: '';
   position: absolute;
   background-image: url(../img/testimonial/shape-bg.png);
@@ -2678,7 +2667,7 @@ Client Area
   right: 0;
   height: 100%;
   width: 100%;
-}
+} */
 
 .client-area .client-slider .center .client-item h3, .client-area .client-slider .center .client-item p {
   color: #fff;
@@ -2696,29 +2685,44 @@ Client Area
   border-radius: 15px;
   padding-left: 20px;
   padding-right: 20px;
+  height: 200px;
   padding-bottom: 45px;
 }
-
+.team-margin{
+  margin-top: 50px;
+}
 .client-item .client-item-img img {
   position: absolute;
-  top: -50px;
+  top: -80px;
   left: 0;
   right: 0;
   margin: auto;
-  width: 100px;
+  width: 150px;
   border-radius: 50%;
 }
 
 .client-item h3 {
   font-size: 20px;
-  color: #070f4d;
-  padding-top: 70px;
+  color: #4356d6;
+  padding-top: 90px;
 }
-
+.team-social a i{
+  background-color: #fff;
+  color: #4356d6;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 50%;
+}
+.team-social a:hover i{
+  cursor: pointer;
+  background-color: #4356d6;
+  color: #fff;
+  transition: ease 0.3s;
+}
 .client-item p {
   color: #75799b;
   max-width: 490px;
-  margin: 0 auto;
+  margin: 5px auto;
 }
 
 .client-mt {

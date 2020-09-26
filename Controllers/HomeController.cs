@@ -52,8 +52,8 @@ namespace TBSTech.Controllers
             {
                 viewModel.Add(new ProductServiceCoursesMemberViewModel()
                 {
-                    CourseDescription = item2.CourseName,
-                    CourseName = item2.CourseDescription
+                    CourseName = item2.CourseName,
+                    CourseDescription = item2.CourseDescription
                 });
             }
             return View(viewModel);
@@ -64,11 +64,15 @@ namespace TBSTech.Controllers
             var data = _productRepo.Collection();
             return View(data);
         }
-        public IActionResult Members()
+        public IActionResult Course()
+        {
+            var data = _courseRepo.Collection();
+            return View(data);
+        }
+        public IActionResult ProductDetail()
         {
             return View();
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

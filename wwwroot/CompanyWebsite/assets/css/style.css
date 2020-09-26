@@ -2706,6 +2706,7 @@ Client Area
   right: 0;
   margin: auto;
   width: 150px;
+  height: 150px;
   border-radius: 50%;
 }
 

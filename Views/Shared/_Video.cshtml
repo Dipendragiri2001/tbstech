@@ -1,6 +1,6 @@
 @inject IVideoRepository _videoRepo
 @{
-    var video = _videoRepo.Collection();
+    var video = _videoRepo.Collection().Take(2);
 }
 
 @foreach (var item in video)

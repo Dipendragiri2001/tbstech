@@ -20,10 +20,12 @@ namespace TBSTech.Controllers
         private readonly ICourseRepository _courseRepo;
         private readonly IVideoRepository _videoRepo;
         private readonly ApplicationDbContext _context;
+        private readonly IMemberRepository _memberRepo;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IVideoRepository videoRepo, ICourseRepository courseRepo, IProductRepository productRepo, IServiceRepository serviceRepo)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IMemberRepository memberRepo,IVideoRepository videoRepo, ICourseRepository courseRepo, IProductRepository productRepo, IServiceRepository serviceRepo)
         {
             _context = context;
+            _memberRepo = memberRepo;
             _videoRepo = videoRepo;
             _courseRepo = courseRepo;
             _serviceRepo = serviceRepo;
@@ -44,9 +46,19 @@ namespace TBSTech.Controllers
             var data = _productRepo.Collection();
             return View(data);
         }
+        public IActionResult Service()
+        {
+            var data = _serviceRepo.Collection();
+            return View(data);
+        }
         public IActionResult Course()
         {
             var data = _courseRepo.Collection();
+            return View(data);
+        }
+        public IActionResult Member()
+        {
+            var data = _memberRepo.Collection();
             return View(data);
         }
         public IActionResult ProductDetail(int id)

@@ -1,0 +1,60 @@
+@model List<TBSTech.Models.Member>
+
+
+        <section class="service-area pt-100 pb-70">
+            <div class="container">
+                <div class="scetion-title text-center">
+                    <span>Our Team</span>
+                    <h2>Our Expert Members</h2>
+                    <p>
+Our team members that make TBS technology run in smooth pace.                    </p>
+                </div>
+                <div>
+                    <div class="row pt-45">
+
+                @foreach (var item in Model)
+                
+                {
+                    
+                
+                
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="member-card">
+                            <div class="member-img">
+                                
+                                    <img src="~/MemberImages/@item.imageUrl" alt="Member Images">
+                                
+                                <div class="member-content">
+                        
+                                        <h3>@item.MemberName</h3>
+                                    
+                                    <span>@item.Position</span>
+                                    <div class="social-icon">
+                                        <ul>
+                                            <li>
+                                                <a href="#" target="_blank" >
+                                                    <i class='bx bxl-facebook'></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" target="_blank" >
+                                                    <i class='bx bxl-instagram' ></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                
+                }
+                 </div>
+              
+
+                    
+        </section>
+       
+
+
+        

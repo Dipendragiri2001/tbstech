@@ -1,0 +1,41 @@
+@model TBSTech.Models.Service
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+<div class="inner-banner inner-bg1">
+            <div class="container">
+                <div class="inner-title text-center">
+                    <h3>Product Details</h3>
+                    <ul>
+                        <li>
+                            <a href="index.html">Products</a>
+                        </li>
+                        <li>
+                            <i class='bx bxs-chevrons-right'></i>
+                        </li>
+                        <li>Product Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<section class="service-area pt-100 pb-70">
+            <div class="container">
+                <div class="scetion-title text-center">
+                    <span>Product Detail</span>
+                    <h2>Place your order.</h2>
+                    <p>
+Here is the full detail of the product you just clicked.                    </p>
+                </div>
+            </div>
+            <div class="container">
+            <div class="product">
+                <div class="product-img">
+                    <img src="~/ProductImages/@Model.ImageUrl" alt="">
+                </div>
+                <div class="product-detail">
+                    <h1>@Model.ServiceName</h1>
+<p>@Model.Description</p>                </div>
+            </div>
+            </div>
+</section>

@@ -1748,8 +1748,13 @@ Member Area
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.member-card:hover .member-img .member-content {
+.member-card:hover  .member-content {
   padding-top: 40px;
+}
+.member-img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 
 .member-card:hover .member-img .member-content .social-icon {
@@ -2707,8 +2712,8 @@ Client Area
   margin: auto;
   width: 150px;
   height: 150px;
-  object-fit: cover;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .client-item h3 {

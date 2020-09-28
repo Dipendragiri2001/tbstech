@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
+using MimeKit;
 using TBSTech.Data;
 using TBSTech.Models;
 using TBSTech.Repository;
@@ -49,6 +53,55 @@ namespace TBSTech.Controllers
             var data = _courseRepo.Collection();
             return View(data);
         }
+
+        public IActionResult Contact()
+        {
+            ViewBag.Courses = new SelectList(_courseRepo.Collection(),"CourseName","CourseName");
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Contact(string firstName,string lastName, string phonenumber,string email,string courses,string message)
+        {
+            
+            string msg = "First Name: "+ firstName +"<br/> " + "Last Name: "+ lastName+ "<br/> "+ "Phone Number: " + phonenumber + "<br/>" + "Student Email: "+ email + "<br/> <br/>" + "<b>" + "Student Message: " + message + "<b>";
+            string s =  SendEmail(msg,courses);
+            System.Console.WriteLine(s);
+            return View();
+        }
+        public string SendEmail( string Message,string subject){
+        
+        try
+        {
+            // Credentials
+            var credentials = new NetworkCredential("dipendragiri2002@gmail.com", "dipendra2001");
+            // Mail message
+            var mail = new MailMessage()
+            {
+                From = new MailAddress("noreply@codinginfinite.com"),
+                Subject = subject,
+                Body = Message
+            };
+            mail.IsBodyHtml = true;
+            mail.To.Add(new MailAddress("dipendragiri2001@gmail.com"));
+           
+            var client = new SmtpClient()
+            {
+                Port = 587,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Host = "smtp.gmail.com",
+                EnableSsl = true,
+                Credentials = credentials
+            };
+            client.Send(mail);
+            return "Email Sent Successfully!";
+        }
+        catch (System.Exception e)
+        {
+            return e.Message;
+        }
+        
+    }
         public IActionResult ProductDetail(int id)
         {
             var singleProduct = _productRepo.GetSingle(x => x.Id == id);

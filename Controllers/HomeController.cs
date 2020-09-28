@@ -50,9 +50,9 @@ namespace TBSTech.Controllers
             var data = _productRepo.Collection();
             return View(data);
         }
-        public IActionResult Service()
+        public IActionResult Service(int id)
         {
-            var data = _serviceRepo.Collection();
+            var data = _serviceRepo.GetSingle(x=>x.Id==id);
             return View(data);
         }
         public IActionResult Course()
@@ -60,13 +60,6 @@ namespace TBSTech.Controllers
             var data = _courseRepo.Collection();
             return View(data);
         }
-<<<<<<< HEAD
-        public IActionResult Member()
-        {
-            var data = _memberRepo.Collection();
-            return View(data);
-        }
-=======
 
         public IActionResult Contact()
         {
@@ -116,7 +109,6 @@ namespace TBSTech.Controllers
         }
         
     }
->>>>>>> 30c762671bc3716b7f14eda22ddfbfd38ac753d2
         public IActionResult ProductDetail(int id)
         {
             var singleProduct = _productRepo.GetSingle(x => x.Id == id);

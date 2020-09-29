@@ -23,7 +23,7 @@ This files table contents are outlined below>>>>>
 ** - Member Area Style
 ** - Testimonial Area Style
 ** - Blog Card Style
-** - Footer Section Style
+** - footer Section Style
 ** - Home Page Two Style
 ** - Home Page Three Style
 ** - Inner Banner Style
@@ -2169,199 +2169,7 @@ Blog Card
 /*=================================
 Blog Card End
 ====================================*/
-/*=================================
-Footer Section 
-====================================*/
-.bg-footer {
-  margin-top: 20px;
-  background-color: #4356d6;
-  position: relative;
-  border-radius: 40% 0 0 0;
-}
 
-.bg-footer::before {
-  content: "";
-  left: 0;
-  position: absolute;
-  background: #ffffff;
-  height: 20%;
-  top: -70px;
-  -webkit-transform: skewY(175deg);
-          transform: skewY(175deg);
-  width: 100%;
-  z-index: 1;
-}
-
-.bg-footer::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-image: url(../img/shape/footer-shape.png);
-  background-repeat: no-repeat;
-  background-position: right;
-  width: 100%;
-  height: 100%;
-}
-
-.footer-top {
-  padding-top: 200px;
-  padding-bottom: 70px;
-  position: relative;
-  z-index: 1;
-}
-
-.footer-single {
-  margin-bottom: 30px;
-}
-
-.footer-single .footer-single-content a img {
-  margin-bottom: 20px;
-}
-
-.footer-single .footer-single-content p {
-  color: #fff;
-  margin: 0;
-}
-
-.footer-single .newsleter-area {
-  margin-top: 25px;
-}
-
-.footer-single .newsleter-area .newsletter-form {
-  position: relative;
-  max-width: 370px;
-  border-radius: 50px;
-}
-
-.footer-single .newsleter-area .newsletter-form .form-control {
-  background: #fff;
-  height: 55px;
-  line-height: 55px;
-  margin: 0;
-  border-radius: 50px;
-  border: none;
-  padding: 0 25px;
-}
-
-.footer-single .newsleter-area .newsletter-form .form-control:focus {
-  outline: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border: none;
-}
-
-.footer-single .newsleter-area .newsletter-form .subscribe-btn {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  margin: 0;
-  background: #4356d6;
-  color: #fff;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 20px;
-  border: 0;
-  border-radius: 50px;
-  font-size: 14px;
-}
-
-.footer-single .newsleter-area .newsletter-form .subscribe-btn:hover {
-  background: #070f4d;
-  color: #ffffff;
-}
-
-.footer-single .newsleter-area .newsletter-form .validation-danger {
-  font-size: 18px;
-  margin-top: 5px;
-  color: red;
-}
-
-.footer-list {
-  margin-bottom: 30px;
-}
-
-.footer-list h3 {
-  font-size: 25px;
-  color: #fff;
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.footer-list ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer-list ul li {
-  margin-top: 10px;
-  display: block;
-  font-size: 17px;
-  color: #fff;
-}
-
-.footer-list ul li i {
-  font-size: 15px;
-}
-
-.footer-list ul li a {
-  color: #fff;
-  position: relative;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-}
-
-.footer-list ul li a::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: #070f4d;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-}
-
-.footer-list ul li a:hover::before {
-  width: 100%;
-}
-
-.footer-list ul li a:hover {
-  color: #070f4d;
-}
-
-.footer-bottom {
-  position: relative;
-  border-top: 1px solid #fff;
-  padding-top: 24px;
-  padding-bottom: 22px;
-  z-index: 1;
-}
-
-.footer-bottom .bottom-text p {
-  color: #fff;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-bottom .bottom-text p a {
-  color: #070f4d;
-  font-weight: 500;
-}
-
-.footer-bottom .bottom-text p a:hover {
-  color: #fff;
-}
-
-.footer-area-bg {
-  background-color: #4356d6;
-}
-
-/*=================================
-Footer Section End
-====================================*/
 /*================================
 Home Page One Style  End
 ==================================*/
@@ -2839,134 +2647,8 @@ Subscribe Area
 /*================================
 Subscribe Area End
 ==================================*/
-/*=================================
-Footer Area Another
-====================================*/
-.footer-area-another {
-  background-color: #fff;
-}
 
-.footer-top-2 {
-  position: relative;
-  z-index: 1;
-}
 
-.footer-single-2 {
-  margin-bottom: 30px;
-}
-
-.footer-single-2 .footer-single-content-2 a img {
-  margin-bottom: 20px;
-}
-
-.footer-single-2 .footer-single-content-2 p {
-  color: #75799b;
-  margin-bottom: 20px;
-}
-
-.footer-single-2 .footer-social {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.footer-single-2 .footer-social li {
-  display: inline-block;
-  position: relative;
-  padding-right: 10px;
-}
-
-.footer-single-2 .footer-social li a {
-  font-size: 24px;
-  color: #070f4d;
-}
-
-.footer-single-2 .footer-social li a:hover {
-  color: #4356d6;
-}
-
-.footer-list-2 {
-  margin-bottom: 30px;
-}
-
-.footer-list-2 h3 {
-  font-size: 25px;
-  color: #070f4d;
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.footer-list-2 ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer-list-2 ul li {
-  margin-top: 10px;
-  display: block;
-  font-size: 17px;
-  color: #070f4d;
-}
-
-.footer-list-2 ul li i {
-  font-size: 15px;
-}
-
-.footer-list-2 ul li a {
-  color: #070f4d;
-  position: relative;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-}
-
-.footer-list-2 ul li a::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: #4356d6;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-}
-
-.footer-list-2 ul li a:hover::before {
-  width: 100%;
-}
-
-.footer-list-2 ul li a:hover {
-  color: #4356d6;
-}
-
-.footer-bottom-2 {
-  position: relative;
-  border-top: 1px solid #fff;
-  padding-top: 24px;
-  padding-bottom: 22px;
-  z-index: 1;
-  background-color: #070f4d;
-}
-
-.footer-bottom-2 .bottom-text-2 p {
-  color: #fff;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-bottom-2 .bottom-text-2 p a {
-  color: #ff4a35;
-  font-weight: 500;
-}
-
-.footer-bottom-2 .bottom-text-2 p a:hover {
-  color: #fff;
-}
-
-/*=================================
-Footer Area Another End
-====================================*/
 /*================================
 Home Page Two Style End
 ==================================*/
@@ -4776,7 +4458,7 @@ Animation CSS End
   display: flex;
 }
 .product .product-img{
-  margin-top: 70px;
+  margin-top: 60px;
 margin-right: 30px;
 width: 30% !important;
 }
@@ -4784,8 +4466,206 @@ width: 30% !important;
   width: 65%;
   text-align: left;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 990px) {
   .product{
     flex-direction: column;
   }
+  .product .product-img{
+  width: 100% !important;
+  margin-top: 0;
+margin-right: 0;
 }
+
+  .product .product-detail{
+    width: 100%;
+    margin-top: 20px;
+    text-align: left;
+  }
+  .product .product-detail h1{
+    font-size: 24px;
+  }
+}
+
+/* footer */
+
+  
+footer{
+  font-family: arial, tahoma;
+  font-size: 10px;
+  color: #fff;
+  text-transform: capitalize;
+  width: auto;
+  background-color: #4356d6 ;
+  padding: 0 160px 0 ;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+footer p{
+  line-height: 180%;
+  color: #fff;
+  font-size: 12px;
+}
+footer h6, footer div{
+  margin-bottom: 20px;
+} 
+footer h6{
+  margin-top: 25px;
+  font-size: 16px;
+  color: #fff;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+footer div .one{
+  margin-bottom: 20px;
+  text-transform: none;
+}
+footer .details{
+  display: flex;
+  flex-wrap: wrap;
+}
+footer .details div{
+  width: 150px;
+  margin-right: 20px;
+}
+footer .details div p{
+  text-transform: uppercase;
+}
+footer .details div span{
+  margin-bottom: 20px;
+}
+footer  .contact{
+  width: 340px;
+}
+footer .information{
+  margin-right: 20px;
+}
+footer .information p{
+  margin-bottom: 8px;
+}
+footer .account p{
+  margin-bottom: 8px;
+  width: 150px;
+}
+footer .newsletter p, input{
+  padding: 5px;
+}
+footer .newsletter input{
+  width: 170px;
+  margin-bottom: 20px;
+  border-style: none;
+  background-color: #fff;
+  color: #a29e9e;
+}
+footer .newsletter input::placeholder{
+  color: #a29e9e;
+  font-size: 10px;
+}
+footer .newsletter button{
+  padding: 7px 12px;
+  margin-left: 4px;
+  color: #fff;
+  background-color: #f00;
+  font-size: 10px;
+  border-style: none;
+}
+footer .newsletter a{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+}
+footer .newsletter a:first-of-type{
+  background-color: #4267B2;
+  font-size: 16px;
+}
+footer .newsletter a:last-of-type{
+  background-color: #f00;
+  color: #333;
+  font-size: 16px;
+  line-height: 22px;
+}
+footer a:hover { 
+transform: scale(1.1);
+transition: all .2s ease-in-out;
+color: white;
+}
+/* start media footer */
+@media (max-width: 767px) {
+  footer{
+    padding: 15px 30px;
+    justify-content: initial;
+}
+  footer .information{
+    width: 120px;
+  }
+  footer .account{
+    width: 120px;
+  }
+}
+/* end media footer */
+.footer-2{
+  width: 100%;
+  height: 45px;
+  padding: 15px 180px;
+  background-color: #fff;
+  position: relative;
+}
+.footer-2 p{
+  color: gray;
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+}
+.footer-2 p span{
+  color: #000;
+}
+.footer-2 .icons{
+  float: right;
+}
+.footer-2 a{
+  display: inline-block;
+  margin-right: 4px;
+}
+.footer-2 a:first-of-type{
+  background-color: #31abea; 
+  color: #fff;
+}
+.footer-2 a:nth-of-type(2){
+  background-color: #14226b; 
+  color: #fff;
+}
+.footer-2 a:nth-of-type(3){
+  background-color: #31abea; 
+  color: #fff;
+}
+.footer-2 a:nth-of-type(4){
+  background-color: orange; 
+  color: #fff;
+}
+.footer-2 a:last-of-type{
+  background-color: #31abea; 
+  color: #fff;
+}
+    /* start media footer-2 */
+@media (max-width: 767px) {
+  .footer-2{
+    padding: 5px 20px;
+    height: 80px;
+}
+.footer-2 p{
+  padding: 5px 15px;
+  float: none;
+  position: static;
+}
+  .footer-2 .icons{
+    padding: 5px 15px;
+    float: none;
+  }
+}
+    /* end media footer-2 */

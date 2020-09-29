@@ -1,0 +1,19 @@
+@inject IServiceRepository service
+@{
+    var serv = @service.Collection();
+}
+
+
+  
+@foreach (var item in serv)
+
+ {  
+       
+           <p>
+          <a asp-action="Service" asp-controller="Home" asp-route-id="@item.Id">
+                      @item.ServiceName
+                </a>
+       </p>
+ }
+
+

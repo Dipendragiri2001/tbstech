@@ -4625,9 +4625,6 @@ color: white;
 .footer-2 p span{
   color: #000;
 }
-.footer-2 .icons{
-  float: right;
-}
 .footer-2 a{
   display: inline-block;
   margin-right: 4px;
@@ -4666,6 +4663,9 @@ color: white;
   .footer-2 .icons{
     padding: 5px 15px;
     float: none;
+  }
+  .footer-2 p:last-child{
+    display: none;
   }
 }
     /* end media footer-2 */

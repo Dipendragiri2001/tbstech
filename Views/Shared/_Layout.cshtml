@@ -42,7 +42,7 @@
         <div class="navbar-area">
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
-                <a href="index.html" class="logo">
+                <a href="/" class="logo">
                     <img src="~/img/Logo1.png" alt="Logo">
                 </a>
             </div>
@@ -51,10 +51,10 @@
             <div class="main-nav top-nav">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light ">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="/">
                             <img src="~/img/Logo_1.png" alt="Logo">
                         </a>
-                        <a class="navbar-brand-sticky" href="index.html">
+                        <a class="navbar-brand-sticky" href="/">
                             <img src="~/img/Logo_1.png" alt="Logo">
                         </a>
 
@@ -66,7 +66,7 @@
                                 </li>
                                 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a class="nav-link" style="cursor:pointer;">
                                         Services 
                                         <i class='bx bxs-chevron-right'></i>
                                     </a>
@@ -174,16 +174,6 @@ Digital, Computer, Web and Networking field around the globe.</p>
 									</li>
 									<li>
 										<a href="#">
-											<i class="bx bxl-twitter"></i>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class='bx bxl-youtube'></i>
-										</a>
-									</li>
-									<li>
-										<a href="#">
 											<i class='bx bxl-instagram'></i>
 										</a>
 									</li>
@@ -201,12 +191,51 @@ Digital, Computer, Web and Networking field around the globe.</p>
         </main>
     </div>
 
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - TBSTech - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer>
+        <div class="contact">
+          <h6>contact us</h6>
+          <p class="one">Hi, we are always open for cooperation and suggestions,<br> contact us in one of the ways below</p>
+          <div class="details">
+            <div>
+              <p>phone number</p>
+              <span><a href="">+977-XXXXXXX</a></span>
+            </div> 
+            <div> 
+              <p>email address</p>
+              <span style="text-decoration:lowercase;">info@tbstech.net</span>
+            </div>
+            <div>
+              <p>our location</p>
+              <span>Putalisadak<br> Kathmandu</span>
+            </div> 
+          </div>  
         </div>
-    </footer>
+        <div class="information">
+          <h6>Services</h6>
+           @await Html.PartialAsync("_Foooterservice")
+        </div>
+        <div class="account">
+          <h6>Links</h6>
+          <p><a asp-controller="Home" asp-action="Index">Home</a></p>
+          <p><a asp-controller="Home" asp-action="Product">Products</a></p>
+          <p><a asp-controller="Home" asp-action="Course">Courses</a></p>
+          <p><a asp-controller="Home" asp-action="Member">Members</a></p>
+          <p><a href="#" data-toggle="modal" data-target="#myModal2">Contact</a></p>
+        </div>
+        <div class="newsletter">
+          <h6>newsletter</h6>
+          <p>enter your email address below to subscribe to our newsletter<br>
+          and keep up to date with discounts and special offers</p>    
+          <input type="email" name="email" placeholder="user@example.com">
+          <button>Subscribe</button>
+          <p>follow us on social networks</p>
+          <a href=""><i class="bx bxl-facebook"></i></a>
+          <a href=""><i class="bx bxl-instagram"></i></a>
+        </div>
+      </footer>
+      <div class="footer-2">
+        <p>Copyright by <span>TBS Technology</span> - 2020<span></span></p>
+      </div>
      <!-- Jquery Min JS -->
         <script src="~/CompanyWebsite/assets/js/jquery-3.5.0.min.js"></script>
         <!-- Popper Min JS -->

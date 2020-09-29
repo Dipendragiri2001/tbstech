@@ -35,7 +35,7 @@ namespace TBSTech.Areas.Admin.Controllers
 
             if(banner >0)
             {
-                
+                bannerNotify();
                return RedirectToAction(nameof(Index));
             }
             return View();
@@ -51,7 +51,6 @@ namespace TBSTech.Areas.Admin.Controllers
                 if (file != null)
                 {
 
-                    
                     string fileName = Guid.NewGuid().ToString() + file.FileName;
                     newVideo = fileName;
                     UpdatePhoto(file, folderName, fileName, oldVideo);
@@ -67,11 +66,20 @@ namespace TBSTech.Areas.Admin.Controllers
             }
             else if (message.Equals("New"))
             {
+                if(file !=null)
+                {
+
                 string fileName = Guid.NewGuid().ToString() + file.FileName;
 
                 model.ImageUrl = UploadPhoto(file, folderName,fileName);
                 _bannerRepo.Insert(model);
                 addNotify();
+                }
+                else{
+                    photoNotify();
+                    ViewBag.Message = "New";
+                    return View(model);
+                }
 
             }
 

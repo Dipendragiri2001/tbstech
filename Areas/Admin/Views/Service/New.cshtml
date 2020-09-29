@@ -1,4 +1,6 @@
  @model TBSTech.Models.Service
+ <link rel="stylesheet" href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.min.css">
+
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -42,7 +44,7 @@
               </div>
               <div class="form-group">
                 <label asp-for="Description">Service Description</label>
-                <textarea asp-for="Description" id="inputDescription" class="form-control" rows="4"></textarea>
+                <textarea id="editor" asp-for="Description"  class="form-control"></textarea>
               </div>
               <div class="form-group">
                 <label >Service Image</label>
@@ -63,3 +65,13 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+    @section scripts {
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="~/lib/Trumbowyg-master/dist/trumbowyg.min.js"></script>
+  <script>
+    $('#editor').trumbowyg();
+    </script>
+    @* // class
+    // id
+    // nav html element *@
+    }

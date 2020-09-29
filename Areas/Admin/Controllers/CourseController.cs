@@ -30,38 +30,21 @@ namespace TBSTech.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult New(Course model,IFormFile file,string message)
+        public IActionResult New(Course model,string message)
         {
-            string folderName = "CourseImages";
-            string newImage;
-
+           
             if (message.Equals("Update"))
             {
-                string oldImage = _courseRepo.GetSingle(x => x.Id == model.Id).ImageUrl;
-                if (file != null)
-                {
-
-                    Console.WriteLine(oldImage);
-                    string fileName = Guid.NewGuid().ToString() + file.FileName;
-                    newImage = fileName;
-                    UpdatePhoto(file, folderName, fileName, oldImage);
-                    model.ImageUrl = newImage;
+                
 
                     _courseRepo.Update(model);
                     updateNotify();
-                }
-                else
-                {
-                    model.ImageUrl = oldImage;
-                    _courseRepo.Update(model);
-                    updateNotify();
-                }
+                
+              
             }
             else if (message.Equals("New"))
             {
-                string fileName = Guid.NewGuid().ToString() + file.FileName;
-
-                model.ImageUrl = UploadPhoto(file, folderName, fileName);
+               
                 _courseRepo.Insert(model);
                 addNotify();
 
@@ -73,7 +56,7 @@ namespace TBSTech.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
 
         }
-        public IActionResult Update(int id, IFormFile file)
+        public IActionResult Update(int id)
         {
               ViewBag.Message = "Update";
             var data = _courseRepo.GetSingle(x => x.Id == id);
@@ -81,9 +64,9 @@ namespace TBSTech.Areas.Admin.Controllers
         }
         public IActionResult Delete(int id,IFormFile file)
         {
-            string folderName = "CourseImages";
+           
             var courseToDelete= _courseRepo.GetSingle(x=>x.Id==id);
-            DeletePhoto(file,folderName,courseToDelete.ImageUrl);
+           
             _courseRepo.Delete(x=>x.Id == id);
             _courseRepo.Commit();
             deleteNotify();

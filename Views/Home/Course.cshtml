@@ -15,11 +15,11 @@
                 </div><div class="course-container">
                   @foreach (var item2 in Model){
                     N++;
-                    <button class="course">@N > @item2.CourseName</button>
+                    <button class="course">@N. @item2.CourseName</button>
 <div class="panel">
 
-  <p>@item2.CourseDescription</p>
-  <a href="http://@item2.CourseLink"><div class="default-btn">More...</div></a>
+  <p>@Html.Raw(item2.CourseDescription)</p>
+  <a href="https://@item2.CourseLink"><div class="default-btn">More...</div></a>
 </div>
 }
 

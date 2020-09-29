@@ -56,11 +56,18 @@ namespace TBSTech.Areas.Admin.Controllers
             }
             else if (message.Equals("New"))
             {
+                if(file!=null)
+                {
                 string fileName = Guid.NewGuid().ToString() + file.FileName;
 
                 model.VideoUrl = UploadPhoto(file, folderName,fileName);
                 _videoRepo.Insert(model);
-
+                }
+                else{
+                    photoNotify();
+                    ViewBag.Message = "New";
+                    return View(model);
+                }
             }
 
 

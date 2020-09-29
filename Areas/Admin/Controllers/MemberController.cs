@@ -57,10 +57,17 @@ namespace TBSTech.Areas.Admin.Controllers
             }
             else if (message.Equals("New"))
             {
+                if(file!=null)
+                {
                 string fileName = Guid.NewGuid().ToString() + file.FileName;
 
                 model.imageUrl = UploadPhoto(file, folderName,fileName);
                 _memberRepo.Insert(model);
+                }else{
+                    photoNotify();
+                    ViewBag.Message = "New";
+                    return View(model);
+                }
 
             }
 

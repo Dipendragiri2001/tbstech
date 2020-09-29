@@ -1,4 +1,5 @@
  @model TBSTech.Models.Product
+ <link rel="stylesheet" href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.min.css">
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -6,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Project Add</h1>
+            <h1>Add Product</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -43,14 +44,14 @@
               </div>
               <div class="form-group">
                 <label asp-for="Description">Product Description</label>
-                <textarea asp-for="Description" id="inputDescription" class="form-control" rows="4"></textarea>
+                <textarea id="editor" asp-for="Description" class="form-control" ></textarea>
               </div>
               <div class="form-group">
                 <label >Product Image</label>
                 <input  type="file" accept="image/*" name="file" id="file" class="form-control">
               </div>
                 <div class="form-group">
-                   <input type="submit" value="Create Product" class="btn btn-success float-right">
+                   <input type="submit" value="Add Product" class="btn btn-success float-right">
                  </div>
               
             </div>
@@ -64,3 +65,15 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  @section scripts {
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="~/lib/Trumbowyg-master/dist/trumbowyg.min.js"></script>
+  <script>
+    $('#editor').trumbowyg();
+    </script>
+    @* // class
+    // id
+    // nav html element *@
+    
+}

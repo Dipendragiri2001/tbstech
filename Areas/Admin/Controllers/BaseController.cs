@@ -32,7 +32,14 @@ namespace TBSTech.Areas.Admin.Controllers
         {
             __clientNotification.AddSuccessToastMessage("Your Data Has Been Deleted Sucessfully");
         }
-
+          public void photoNotify()
+        {
+            __clientNotification.AddAlertToastMessage("Please Upload a photo");
+        }
+          public void bannerNotify()
+        {
+            __clientNotification.AddAlertToastMessage("You Cannot Add More Than One Banner");
+        }
         public string UploadPhoto(IFormFile file, string folderName, string fileName)
         {
 

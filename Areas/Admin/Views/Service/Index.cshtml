@@ -1,4 +1,7 @@
  @model List<TBSTech.Models.Service>
+  @{
+    var N=0;
+}
  <!-- Content Wrapper. Contains page content -->
 
     <!-- Content Header (Page header) -->
@@ -20,107 +23,80 @@
 
     <!-- Main content -->
     <section class="content">
-
-      <!-- Default box -->
-      @foreach (var item in Model)
-      {
-          
-      
-      <div class="card">
+<div class="card">
         <div class="card-header">
           <h3 class="card-title">Services</h3>
+                              <a asp-controller="Service" asp-action="New" style="background-color:#007bff;text-align:center;float:right;color:white;width:150px;border-radius:20px;cursor:pointer;padding:10px;">Add Service</a>
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
         </div>
         <div class="card-body p-0">
           <table class="table table-striped projects">
               <thead>
                   <tr>
                       <th style="width: 1%">
-                          #
+                         #
                       </th>
-                      <th style="width: 20%">
+                      <th style="width: 15%">
                           Service Name
                       </th>
-                      <th style="width: 30%">
+                      <th style="width: 20%;">
                           Service Image
                       </th>
-                      <th>
+                      <th style="width: 45%;">
                         Service Description
                       </th>
-                      <th style="width: 8%" class="text-center">
-                          Status
-                      </th>
-                      <th style="width: 20%">
+                    
+                      <th style="width: 10%">
                       </th>
                   </tr>
               </thead>
+      <!-- Default box -->
+      @foreach (var item in Model)
+      {
+          N++;
+      
+      
               <tbody>
                   <tr>
                       <td>
-                          #
+                          @N
                       </td>
                       <td>
-                          <a>
                               @item.ServiceName
-                          </a>
                           <br/>
                           <small>
                               @item.CreatedAt
                           </small>
                       </td>
                       <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="~/ServiceImages/@item.ImageUrl">
-                              </li>
-                          
-                          </ul>
+                          <img src="~/ServiceImages/@item.ImageUrl" style="border-radius:50%;object-fit:cover;" width="150px" height="150px">
                       </td>
-                      <td class="project_progress">
-                          <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: 57%">
-                              </div>
-                          </div>
+                      <td  style="text-align:justify;">
                           <small>
                               @item.Description
                           </small>
                       </td>
-                      <td class="project-state">
-                          <span class="badge badge-success">Success</span>
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a>
-                          <a class="btn btn-info btn-sm" asp-controller="Service" asp-action="Update" asp-route-id="@item.Id" >
+                      <td>
+                          <a class="btn btn-info btn-sm" asp-controller="Service" asp-action="Update" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
 
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
+                              
+                             <b>+</b> Edit&nbsp;&nbsp;&nbsp;&nbsp;
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
+                          <a class="btn btn-danger btn-sm" asp-controller="Service" asp-action="Delete" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
+                              
+                             <b>-</b> Delete
                           </a>
                       </td>
                   </tr>
                   
               </tbody>
-          </table>
+        
+      
+      }
+        </table>
         </div>
    
       </div>
-      
-      }
     </section>
     <!-- /.content -->
 

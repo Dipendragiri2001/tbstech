@@ -60,7 +60,11 @@ namespace TBSTech.Controllers
             var data = _courseRepo.Collection();
             return View(data);
         }
-
+        public IActionResult Member()
+        {
+            var data = _memberRepo.Collection();
+            return View(data);
+        }
         public IActionResult Contact()
         {
             ViewBag.Courses = new SelectList(_courseRepo.Collection(),"CourseName","CourseName");

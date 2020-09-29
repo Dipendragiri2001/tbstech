@@ -1,7 +1,9 @@
 using System;
+using ClientNotifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NToastNotify;
 using TBSTech.Models;
 using TBSTech.Repository;
 
@@ -12,7 +14,7 @@ namespace TBSTech.Areas.Admin.Controllers
     public class CourseController : BaseController
     {
         private readonly ICourseRepository _courseRepo;
-        public CourseController(ICourseRepository courseRepo)
+        public CourseController(ICourseRepository courseRepo,IToastNotification _clientNotification ) : base(_clientNotification)
         {
             _courseRepo = courseRepo;
 
@@ -46,11 +48,13 @@ namespace TBSTech.Areas.Admin.Controllers
                     model.ImageUrl = newImage;
 
                     _courseRepo.Update(model);
+                    updateNotify();
                 }
                 else
                 {
                     model.ImageUrl = oldImage;
                     _courseRepo.Update(model);
+                    updateNotify();
                 }
             }
             else if (message.Equals("New"))
@@ -59,6 +63,7 @@ namespace TBSTech.Areas.Admin.Controllers
 
                 model.ImageUrl = UploadPhoto(file, folderName, fileName);
                 _courseRepo.Insert(model);
+                addNotify();
 
             }
 
@@ -81,7 +86,9 @@ namespace TBSTech.Areas.Admin.Controllers
             DeletePhoto(file,folderName,courseToDelete.ImageUrl);
             _courseRepo.Delete(x=>x.Id == id);
             _courseRepo.Commit();
+            deleteNotify();
             return RedirectToAction(nameof(Index));
         }
+         
     }
 }

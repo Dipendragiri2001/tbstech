@@ -1,7 +1,9 @@
 using System;
 using System.Linq;
+using ClientNotifications;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NToastNotify;
 using TBSTech.Data;
 using TBSTech.Models;
 using TBSTech.Repository;
@@ -13,7 +15,7 @@ namespace TBSTech.Areas.Admin.Controllers
     {
         private readonly IBannerRepository _bannerRepo;
         private readonly ApplicationDbContext _context;
-        public BannerController(IBannerRepository bannerRepo, ApplicationDbContext context)
+        public BannerController(IBannerRepository bannerRepo, ApplicationDbContext context,IToastNotification _clientNotification ) : base(_clientNotification)
         {
             _context = context;
             _bannerRepo = bannerRepo;
@@ -33,7 +35,7 @@ namespace TBSTech.Areas.Admin.Controllers
 
             if(banner >0)
             {
-
+                
                return RedirectToAction(nameof(Index));
             }
             return View();
@@ -41,45 +43,37 @@ namespace TBSTech.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult New(Banner model, IFormFile file, string message)
         {
-            string folderName = "BannerImages";
-            string newImage;
-            var banner = _bannerRepo.Collection().Count();
-
-            if (message.Equals("Update"))
+            string folderName = "BannerVideo";
+            string newVideo;
+             if (message.Equals("Update"))
             {
-                string oldImage = _bannerRepo.GetSingle(x => x.Id == model.Id).ImageUrl;
+                string oldVideo = _bannerRepo.GetSingle(x => x.Id == model.Id).ImageUrl;
                 if (file != null)
                 {
 
-                    Console.WriteLine(oldImage);
+                    
                     string fileName = Guid.NewGuid().ToString() + file.FileName;
-                    newImage = fileName;
-                    UpdatePhoto(file, folderName, fileName, oldImage);
-                    model.ImageUrl = newImage;
+                    newVideo = fileName;
+                    UpdatePhoto(file, folderName, fileName, oldVideo);
+                    model.ImageUrl = newVideo;
 
                     _bannerRepo.Update(model);
-                }
-                else
-                {
-                    model.ImageUrl = oldImage;
-                    _bannerRepo.Update(model);
+                    updateNotify();
+                }else{
+                model.ImageUrl = oldVideo;
+                _bannerRepo.Update(model);
+                updateNotify();
                 }
             }
-            else if(banner >0)
+            else if (message.Equals("New"))
             {
-
-              return  RedirectToAction(nameof(Index));
-            }
-            else if (message.Equals("New")  )
-            {
-               
                 string fileName = Guid.NewGuid().ToString() + file.FileName;
 
-                model.ImageUrl = UploadPhoto(file, folderName, fileName);
+                model.ImageUrl = UploadPhoto(file, folderName,fileName);
                 _bannerRepo.Insert(model);
+                addNotify();
 
             }
-          
 
 
             _bannerRepo.Commit();
@@ -100,6 +94,7 @@ namespace TBSTech.Areas.Admin.Controllers
             DeletePhoto(file, folderName, courseToDelete.ImageUrl);
             _bannerRepo.Delete(x => x.Id == id);
             _bannerRepo.Commit();
+            deleteNotify();
             return RedirectToAction(nameof(Index));
         }
     }

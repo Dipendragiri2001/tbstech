@@ -8,7 +8,7 @@
 
     // Navbar Area
     $(window).on('scroll', function() {
-        if ($(this).scrollTop() >100){  
+        if ($(this).scrollTop() > 100){  
             $('.navbar-area').addClass("sticky-nav");
         }
         else{

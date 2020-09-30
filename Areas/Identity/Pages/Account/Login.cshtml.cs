@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using TBSTech.ViewModels;
 
 namespace TBSTech.Areas.Identity.Pages.Account
 {
@@ -29,6 +30,8 @@ namespace TBSTech.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
         }
+
+        
 
         [BindProperty]
         public InputModel Input { get; set; }

@@ -1,7 +1,12 @@
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.V3.Pages.Account.Internal;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using TBSTech.Repository;
+using TBSTech.ViewModels;
 
 namespace TBSTech.Areas.Admin.Controllers
 {
@@ -11,11 +16,16 @@ namespace TBSTech.Areas.Admin.Controllers
 
     public class HomeController : Controller
     {
+        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly ILogger<LoginModel> _logger;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly IProductRepository _productRepo;
         private readonly IMemberRepository _memberRepo;
         private readonly ICourseRepository _courseRepo;
         private readonly IServiceRepository _serviceRepo;
-        public HomeController(IProductRepository productRepo,
+        public HomeController(SignInManager<IdentityUser> signInManager, 
+            ILogger<LoginModel> logger,
+            UserManager<IdentityUser> userManager,IProductRepository productRepo,
          IServiceRepository serviceRepo, 
          IMemberRepository memberRepo, 
          ICourseRepository courseRepo)
@@ -23,6 +33,9 @@ namespace TBSTech.Areas.Admin.Controllers
             _serviceRepo = serviceRepo;
             _courseRepo = courseRepo;
             _memberRepo = memberRepo;
+            _signInManager = signInManager;
+            _logger = logger;
+            _userManager = userManager;
             _productRepo = productRepo;
 
         }
@@ -38,6 +51,37 @@ namespace TBSTech.Areas.Admin.Controllers
             ViewBag.TotalService = totalService;
 
             return View();
+        }
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var user= await _userManager.GetUserAsync(User);
+                if(user ==null)
+                {
+                    return RedirectToAction("Index");
+                }
+                var result = await _userManager.ChangePasswordAsync(user,
+                model.CurrentPassword,model.NewPassword);
+                if(!result.Succeeded)
+                {
+                    foreach(var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty,error.Description);
+                    }
+                    return View();
+                }
+                await _signInManager.RefreshSignInAsync(user);
+                return View("Index");
+            }
+            return View(model);
         }
 
     }

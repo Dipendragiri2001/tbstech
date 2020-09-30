@@ -187,12 +187,12 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a asp-controller="Course" asp-action="Index" class="nav-link">
+                <a asp-controller="Video" asp-action="Index" class="nav-link">
                   <p>Show All Videos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a asp-controller="Course" asp-action="New" class="nav-link">
+                <a asp-controller="Video" asp-action="New" class="nav-link">
                   <p>Add New Video</p>
                 </a>
               </li>
@@ -208,16 +208,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a asp-controller="Course" asp-action="Index" class="nav-link">
+                <a asp-controller="Banner" asp-action="Index" class="nav-link">
                   <p>Show Banner</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a asp-controller="Course" asp-action="New" class="nav-link">
+                <a asp-controller="Banner" asp-action="New" class="nav-link">
                   <p>Add Banner</p>
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a asp-controller="Home" asp-action="ChangePassword" class="nav-link">
+              <i class="nav-icon fab fa-product-hunt"></i>
+              <p>
+                Password
+              </p>
+            </a>
+            
           </li>
         </ul>
       </nav>

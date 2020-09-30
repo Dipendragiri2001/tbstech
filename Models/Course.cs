@@ -10,6 +10,6 @@ namespace TBSTech.Models
         public string CourseDescription { get; set; }
         public DateTime CourseStartTime { get; set; }
         public DateTime CourseEndTime { get; set; }
-        public string ImageUrl { get; set; }
+        
     }
 }

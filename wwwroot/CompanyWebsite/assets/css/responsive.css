@@ -77,8 +77,8 @@
     display: none;
   }
   .banner-another {
-    background-image: none;
-    background-color: #f5f6ff;
+    border-radius: 0;
+    text-align: justify;
   }
   .banner-ptb {
     padding-top: 100px;
@@ -845,7 +845,6 @@
   }
   .banner-another {
     background-image: none;
-    background-color: #f5f6ff;
   }
   .banner-another .container-fluid {
     max-width: 720px;

@@ -1,7 +1,9 @@
 using System;
+using ClientNotifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NToastNotify;
 using TBSTech.Models;
 using TBSTech.Repository;
 
@@ -13,7 +15,7 @@ namespace TBSTech.Areas.Admin.Controllers
     public class MemberController : BaseController
     {
         private readonly IMemberRepository _memberRepo;
-        public MemberController(IMemberRepository memberRepo)
+        public MemberController(IMemberRepository memberRepo,IToastNotification _clientNotification ) : base(_clientNotification)
         {
             _memberRepo = memberRepo;
 
@@ -55,10 +57,17 @@ namespace TBSTech.Areas.Admin.Controllers
             }
             else if (message.Equals("New"))
             {
+                if(file!=null)
+                {
                 string fileName = Guid.NewGuid().ToString() + file.FileName;
 
                 model.imageUrl = UploadPhoto(file, folderName,fileName);
                 _memberRepo.Insert(model);
+                }else{
+                    photoNotify();
+                    ViewBag.Message = "New";
+                    return View(model);
+                }
 
             }
 
@@ -74,6 +83,15 @@ namespace TBSTech.Areas.Admin.Controllers
               ViewBag.Message = "Update";
             var data = _memberRepo.GetSingle(x => x.Id == id);
             return View(nameof(New), data);
+        }
+          public IActionResult Delete(int id, IFormFile file)
+        {
+            string folderName = "MemberImages";
+            var courseToDelete = _memberRepo.GetSingle(x => x.Id == id);
+            DeletePhoto(file, folderName, courseToDelete.imageUrl);
+            _memberRepo.Delete(x => x.Id == id);
+            _memberRepo.Commit();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

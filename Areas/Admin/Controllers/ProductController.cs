@@ -1,10 +1,12 @@
 using System;
 using System.IO;
 using System.Linq;
+using ClientNotifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NToastNotify;
 using TBSTech.Data;
 using TBSTech.Models;
 using TBSTech.Repository;
@@ -18,7 +20,7 @@ namespace TBSTech.Areas.Admin.Controllers
     {
         private readonly IProductRepository _productRepo;
         private readonly ApplicationDbContext _context;
-        public ProductController(IProductRepository productRepo, ApplicationDbContext context)
+        public ProductController(IProductRepository productRepo, ApplicationDbContext context,IToastNotification _clientNotification ) : base(_clientNotification)
         {
             _context = context;
             _productRepo = productRepo;
@@ -56,17 +58,27 @@ namespace TBSTech.Areas.Admin.Controllers
                     model.ImageUrl = newImage;
 
                     _productRepo.Update(model);
+                    updateNotify();
                 }else{
                 model.ImageUrl = oldImage;
                 _productRepo.Update(model);
+                updateNotify();
                 }
             }
             else if (message.Equals("New"))
             {
+                if(file!=null){
                 string fileName = Guid.NewGuid().ToString() + file.FileName;
 
                 model.ImageUrl = UploadPhoto(file, folderName,fileName);
                 _productRepo.Insert(model);
+                addNotify();
+                }
+                else{
+                    photoNotify();
+                    ViewBag.Message = "New";
+                    return View(model);
+                }
 
             }
 
@@ -85,6 +97,16 @@ namespace TBSTech.Areas.Admin.Controllers
             return View(nameof(New), data);
         }
 
+          public IActionResult Delete(int id, IFormFile file)
+        {
+            string folderName = "ProductImages";
+            var courseToDelete = _productRepo.GetSingle(x => x.Id == id);
+            DeletePhoto(file, folderName, courseToDelete.ImageUrl);
+            _productRepo.Delete(x => x.Id == id);
+            _productRepo.Commit();
+            deleteNotify();
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }

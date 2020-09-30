@@ -49,6 +49,7 @@ body {
   line-height: 1.8;
   font-family: "Poppins", sans-serif;
   color: #75799b;
+  overflow-x: hidden;
 }
 
 p {
@@ -699,17 +700,15 @@ Main Banner Style
 .banner-text p{
   color: #fff;
 }
-
 .banner-img-3 {
   margin-top: 220px;
   position: relative;
+  border: 1px solid #dcdcdc;
+}
+.banner-img-3 video{
+  width: 100%;
 }
 
-.banner-img-3 img {
-  border-radius: 50%;
-  border: 1px solid #dcdcdc;
-  padding: 0 35px 0 35px;
-}
 
 .banner-img-shape {
   position: absolute;
@@ -1755,9 +1754,12 @@ Member Area
 .member-img{
   width: 100%;
   height: 300px;
+}
+.member-img img{
+  width: 100%;
+  height: 300px;
   object-fit: cover;
 }
-
 .member-card:hover .member-img .member-content .social-icon {
   opacity: 1;
 }
@@ -4666,4 +4668,15 @@ color: white;
     float: none;
   }
 }
+
+video{
+  width: 49.5%;
+}
+@media only screen and (max-width: 996px) {
+  video{
+    width: 100%;
+  }
+}
+
+
     /* end media footer-2 */

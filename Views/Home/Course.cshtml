@@ -18,7 +18,7 @@
                     <button class="course">@N. @item2.CourseName</button>
 <div class="panel">
 
-  <p>@item2.CourseDescription</p>
+  <p>@Html.Raw(item2.CourseDescription)</p>
   <a href="https://@item2.CourseLink"><div class="default-btn">More...</div></a>
 </div>
 }

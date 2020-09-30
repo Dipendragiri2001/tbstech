@@ -13,6 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TBSTech.Repository;
+using ClientNotifications.ServiceExtensions;
+using NToastNotify;
 
 namespace TBSTech
 {
@@ -41,6 +43,11 @@ namespace TBSTech
            services.AddScoped<IMemberRepository,MemberRepository>();
            services.AddScoped<IVideoRepository,VideoRepository>();
            services.AddScoped<IBannerRepository,BannerRepository>();
+           services.AddMvc().AddNToastNotifyToastr(new ToastrOptions()
+{
+            ProgressBar = false,
+            PositionClass = ToastPositions.TopRight
+});
 
 
 
@@ -63,7 +70,7 @@ namespace TBSTech
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseNToastNotify();
             app.UseRouting();
 
             app.UseAuthentication();

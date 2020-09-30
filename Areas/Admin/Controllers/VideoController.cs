@@ -1,7 +1,9 @@
 using System;
+using ClientNotifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NToastNotify;
 using TBSTech.Models;
 using TBSTech.Repository;
 
@@ -13,7 +15,7 @@ namespace TBSTech.Areas.Admin.Controllers
     public class VideoController : BaseController
     {
         private readonly IVideoRepository _videoRepo;
-        public VideoController(IVideoRepository videoRepo)
+        public VideoController(IVideoRepository videoRepo,IToastNotification _clientNotification ) : base(_clientNotification)
         {
             _videoRepo = videoRepo;
 
@@ -54,11 +56,18 @@ namespace TBSTech.Areas.Admin.Controllers
             }
             else if (message.Equals("New"))
             {
+                if(file!=null)
+                {
                 string fileName = Guid.NewGuid().ToString() + file.FileName;
 
                 model.VideoUrl = UploadPhoto(file, folderName,fileName);
                 _videoRepo.Insert(model);
-
+                }
+                else{
+                    photoNotify();
+                    ViewBag.Message = "New";
+                    return View(model);
+                }
             }
 
 
@@ -69,9 +78,18 @@ namespace TBSTech.Areas.Admin.Controllers
 
          public IActionResult Update(int id,IFormFile file)
         {
-              ViewBag.Message = "Update";
+            ViewBag.Message = "Update";
             var data = _videoRepo.GetSingle(x => x.Id == id);
             return View(nameof(New), data);
+        }
+          public IActionResult Delete(int id, IFormFile file)
+        {
+            string folderName = "Videos";
+            var courseToDelete = _videoRepo.GetSingle(x => x.Id == id);
+            DeletePhoto(file, folderName, courseToDelete.VideoUrl);
+            _videoRepo.Delete(x => x.Id == id);
+            _videoRepo.Commit();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

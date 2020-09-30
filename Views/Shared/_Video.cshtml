@@ -5,8 +5,10 @@
 
 @foreach (var item in video)
 {
-<video width="49.5%" controls >
+
+<video controls >
   <source src="~/Videos/@item.VideoUrl" type="video/mp4">
   Your browser does not support HTML video.
 </video>
+
 }

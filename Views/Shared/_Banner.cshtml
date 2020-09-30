@@ -4,7 +4,14 @@
 }
 @foreach (var item in banner)
 {
+<<<<<<< HEAD
     
 
  <img src="~/BannerVideo/@item.ImageUrl" alt="Banner Shape">
+=======
+<video width="100%" controls >
+  <source src="~/BannerVideo/@item.ImageUrl" type="video/mp4">
+  Your browser does not support HTML video.
+</video>
+>>>>>>> 29b4a7cb45f53855aff12b1c085e2ca326f8f103
 }

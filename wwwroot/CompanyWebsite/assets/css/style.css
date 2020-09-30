@@ -49,6 +49,7 @@ body {
   line-height: 1.8;
   font-family: "Poppins", sans-serif;
   color: #75799b;
+  overflow-x: hidden;
 }
 
 p {
@@ -567,8 +568,9 @@ Main Banner Style
   margin-bottom: 40px;
 }
 
-.banner-text .banner-btn {
+.banner-text .banner-btn a{
   display: inline-block;
+  border: 1px solid #fff;
   position: relative;
   z-index: 1;
 }
@@ -693,19 +695,20 @@ Main Banner Style
 
 .head-width {
   max-width: 480px;
-  color: #00ABBE;
+  color: #fff;
 }
-
+.banner-text p{
+  color: #fff;
+}
 .banner-img-3 {
   margin-top: 220px;
   position: relative;
+  border: 1px solid #dcdcdc;
+}
+.banner-img-3 video{
+  width: 100%;
 }
 
-.banner-img-3 img {
-  border-radius: 50%;
-  border: 1px solid #dcdcdc;
-  padding: 0 35px 0 35px;
-}
 
 .banner-img-shape {
   position: absolute;
@@ -719,11 +722,8 @@ Main Banner Style
 }
 
 .banner-another {
-  background-image: url(../img/shape/bg-shape-home3.png);
-  background-position: center center;
-  background-size: cover;
-  position: relative;
-  overflow: hidden;
+  background-color: #00ABBE;
+  border-radius: 0 0 100% 0;
 }
 
 .banner-ptb {
@@ -4656,7 +4656,7 @@ color: white;
 @media (max-width: 767px) {
   .footer-2{
     padding: 5px 20px;
-    height: 80px;
+    height: 50px;
 }
 .footer-2 p{
   padding: 5px 15px;
@@ -4667,8 +4667,16 @@ color: white;
     padding: 5px 15px;
     float: none;
   }
-  .footer-2 p:last-child{
-    display: none;
+}
+
+video{
+  width: 49.5%;
+}
+@media only screen and (max-width: 996px) {
+  video{
+    width: 100%;
   }
 }
+
+
     /* end media footer-2 */

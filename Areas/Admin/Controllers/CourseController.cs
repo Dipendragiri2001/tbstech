@@ -35,22 +35,14 @@ namespace TBSTech.Areas.Admin.Controllers
            
             if (message.Equals("Update"))
             {
-                
-
                     _courseRepo.Update(model);
                     updateNotify();
-                
-              
             }
             else if (message.Equals("New"))
-            {
-               
+            { 
                 _courseRepo.Insert(model);
                 addNotify();
-
             }
-
-
             _courseRepo.Commit();
 
             return RedirectToAction(nameof(Index));

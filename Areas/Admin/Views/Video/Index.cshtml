@@ -1,17 +1,20 @@
  @model List<TBSTech.Models.Video>
+  @{
+    var N=0;
+}
  <!-- Content Wrapper. Contains page content -->
- 
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Videos</h1>
+            <h1>Video</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Videos</li>
+              <li class="breadcrumb-item active">Video</li>
             </ol>
           </div>
         </div>
@@ -20,86 +23,74 @@
 
     <!-- Main content -->
     <section class="content">
-
-      <!-- Default box -->
-      @foreach (var item in Model)
-      {
-          
-      
-      <div class="card">
+<div class="card">
         <div class="card-header">
-          <h3 class="card-title">Videos</h3>
+          <h3 class="card-title">Video</h3>
+                    <a asp-controller="Video" asp-action="New" style="background-color:#007bff;text-align:center;float:right;color:white;width:150px;border-radius:20px;cursor:pointer;padding:10px;">Add Video</a>
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
         </div>
         <div class="card-body p-0">
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                   
+                      <th style="width: 15%">
+                         #
+                      </th>
+                      <th style="width: 15%">
+                          Name
+                      </th>
+                     
+                      <th style="width: 50%">
+                        Video
+                      </th>
                       <th style="width: 20%">
-                          Video Name
+                        
                       </th>
-                      <th style="width: 30%">
-                          Video
-                      </th>
-                  
                   </tr>
               </thead>
+      <!-- Default box -->
+      @foreach (var item in Model)
+      {
+          N++;
+      
+      
               <tbody>
                   <tr>
+                      <td>
+                          @N
+                      </td>
+                      <td>
+                              @item.VideoName
+                          <br/>
+                      </td>   
+                      <td>
+                          <video width="100%" controls >
+                              <source src="~/Videos/@item.VideoUrl" type="video/mp4">
+                               Your browser does not support HTML video.
+                                    </video>                      </td>
                      
                       <td>
-                          <a>
-                              @item.VideoName
+                          <a class="btn btn-info btn-sm" asp-controller="Course" asp-action="Update" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
+
+                              
+                             <b>+</b> Edit&nbsp;&nbsp;&nbsp;&nbsp;
                           </a>
-                          <br/>
-                        
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <video width="320" height="240" controls>
-                                     <source src="~/Videos/@item.VideoUrl" type="video/mp4">
-                                    
-                                    </video>
-                              </li>
-                          
-                          </ul>
-                      </td>
-                  
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a>
-                          <a class="btn btn-info btn-sm" asp-controller="Member" asp-action="Update" asp-route-id="@item.Id" >
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
+                          <a class="btn btn-danger btn-sm" asp-controller="Course" asp-action="Delete" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
+                              
+                             <b>-</b> Delete
                           </a>
                       </td>
                   </tr>
                   
               </tbody>
-          </table>
+        
+      
+      }
+        </table>
         </div>
    
       </div>
-      
-      }
     </section>
     <!-- /.content -->
-  
+
   <!-- /.content-wrapper -->

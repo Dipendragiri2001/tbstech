@@ -35,13 +35,16 @@
                       <th style="width: 1%">
                          #
                       </th>
-                      <th style="width: 15%">
+                      <th style="width: 10%">
                           Name
                       </th>
-                      <th style="width: 20%;">
+                      <th style="width: 15%;">
                           Image
                       </th>
-                      <th style="width: 45%;">
+                      <th style="width: 15%;">
+                        Short Description
+                      </th>
+                      <th style="width: 40%;">
                         Description
                       </th>
                     
@@ -69,6 +72,11 @@
                       </td>
                       <td>
                           <img src="~/ProductImages/@item.ImageUrl" style="border-radius:50%;object-fit:cover;" width="150px" height="150px">
+                      </td>
+                       <td  style="text-align:justify;">
+                          <small>
+                          @item.ShortDescription
+                          </small>
                       </td>
                       <td  style="text-align:justify;">
                           <small>

@@ -12,6 +12,8 @@ namespace TBSTech.Models
         [Required(ErrorMessage = "Please enter Product Description")]
 
         public string Description { get; set; }
+        [MaxLength(100)]
+        public string ShortDescription { get; set; }
         public DateTime CreatedAt { get; set; }
         [Required(ErrorMessage = "Please enter Product Image")]
 

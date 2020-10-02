@@ -39,6 +39,7 @@ namespace TBSTech.Areas.Admin.Controllers
             _productRepo = productRepo;
 
         }
+        [HttpGet]
         public IActionResult Index()
         {
             var totalProducts = _productRepo.Collection().Count();
@@ -52,37 +53,6 @@ namespace TBSTech.Areas.Admin.Controllers
 
             return View();
         }
-        [HttpGet]
-        public IActionResult ChangePassword()
-        {
-
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
-        {
-            if(ModelState.IsValid)
-            {
-                var user= await _userManager.GetUserAsync(User);
-                if(user ==null)
-                {
-                    return RedirectToAction("Index");
-                }
-                var result = await _userManager.ChangePasswordAsync(user,
-                model.CurrentPassword,model.NewPassword);
-                if(!result.Succeeded)
-                {
-                    foreach(var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty,error.Description);
-                    }
-                    return View();
-                }
-                await _signInManager.RefreshSignInAsync(user);
-                return View("Index");
-            }
-            return View(model);
-        }
-
+        
     }
 }

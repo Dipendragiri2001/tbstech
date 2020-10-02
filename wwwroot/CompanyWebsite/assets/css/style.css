@@ -3917,8 +3917,8 @@ Contact Page
 
 .contact-wrap-form {
   background-color: #fff;
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  /* -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); */
+  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); */
   padding: 50px;
 }
 
@@ -4794,7 +4794,7 @@ video {
   color: #333;
 }
 .popup .close:hover {
-  color: #06d85f;
+  color: #31abea;
 }
 .popup .content {
   max-height: 30%;
@@ -4808,4 +4808,12 @@ video {
   .popup {
     width: 70%;
   }
+}
+#popup1 button {
+  border: 1px solid #fff;
+  transition: 0.3s all ease;
+}
+#popup1 button:hover {
+  border: 1px solid #31abea;
+  transition: 0.3s all ease;
 }

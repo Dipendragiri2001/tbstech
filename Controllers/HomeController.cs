@@ -82,7 +82,6 @@ namespace TBSTech.Controllers
         }
         public string SendEmail(string Message, string subject)
         {
-
             try
             {
                 // Credentials

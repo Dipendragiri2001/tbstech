@@ -1,0 +1,15 @@
+@inject ICourseRepository courseRepo
+@{
+    var course = courseRepo.Collection();
+}
+@foreach (var item in course)
+{
+  
+       <li class="nav-item">
+           
+          <a asp-action="Course" asp-controller="Home" asp-route-id="@item.Id" class="nav-link">
+                      @item.CourseName
+                </a>
+       </li>
+ 
+}

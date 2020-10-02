@@ -26,7 +26,7 @@ namespace TBSTech.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IMemberRepository _memberRepo;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IMemberRepository memberRepo,IVideoRepository videoRepo, ICourseRepository courseRepo, IProductRepository productRepo, IServiceRepository serviceRepo)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IMemberRepository memberRepo, IVideoRepository videoRepo, ICourseRepository courseRepo, IProductRepository productRepo, IServiceRepository serviceRepo)
         {
             _context = context;
             _memberRepo = memberRepo;
@@ -41,7 +41,8 @@ namespace TBSTech.Controllers
         {
             var product = _productRepo.Collection();
             var service = _serviceRepo.Collection();
-            
+            var course = _courseRepo.Collection();
+
             return View();
         }
 
@@ -52,12 +53,12 @@ namespace TBSTech.Controllers
         }
         public IActionResult Service(int id)
         {
-            var data = _serviceRepo.GetSingle(x=>x.Id==id);
+            var data = _serviceRepo.GetSingle(x => x.Id == id);
             return View(data);
         }
-        public IActionResult Course()
+        public IActionResult Course(int id)
         {
-            var data = _courseRepo.Collection();
+            var data = _courseRepo.GetSingle(x => x.Id == id);
             return View(data);
         }
         public IActionResult Member()
@@ -67,52 +68,52 @@ namespace TBSTech.Controllers
         }
         public IActionResult Contact()
         {
-            ViewBag.Courses = new SelectList(_courseRepo.Collection(),"CourseName","CourseName");
+            ViewBag.Courses = new SelectList(_courseRepo.Collection(), "CourseName", "CourseName");
             return View();
         }
         [HttpPost]
-        public IActionResult Contact(string firstName,string lastName, string phonenumber,string email,string courses,string message)
+        public IActionResult Contact(string firstName, string lastName, string phonenumber, string email, string courses, string message)
         {
-            
-            string msg = "First Name: "+ firstName +"<br/> " + "Last Name: "+ lastName+ "<br/> "+ "Phone Number: " + phonenumber + "<br/>" + "Student Email: "+ email + "<br/> <br/>" + "<b>" + "Student Message: " + message + "<b>";
-            string s =  SendEmail(msg,courses);
+
+            string msg = "First Name: " + firstName + "<br/> " + "Last Name: " + lastName + "<br/> " + "Phone Number: " + phonenumber + "<br/>" + "Student Email: " + email + "<br/> <br/>" + "<b>" + "Student Message: " + message + "<b>";
+            string s = SendEmail(msg, courses);
             System.Console.WriteLine(s);
             return View();
         }
-        public string SendEmail( string Message,string subject){
-        
-        try
+        public string SendEmail(string Message, string subject)
         {
-            // Credentials
-            var credentials = new NetworkCredential("dipendragiri2002@gmail.com", "dipendra2001");
-            // Mail message
-            var mail = new MailMessage()
+            try
             {
-                From = new MailAddress("noreply@codinginfinite.com"),
-                Subject = subject,
-                Body = Message
-            };
-            mail.IsBodyHtml = true;
-            mail.To.Add(new MailAddress("dipendragiri2001@gmail.com"));
-           
-            var client = new SmtpClient()
+                // Credentials
+                var credentials = new NetworkCredential("dipendragiri2002@gmail.com", "dipendra2001");
+                // Mail message
+                var mail = new MailMessage()
+                {
+                    From = new MailAddress("noreply@codinginfinite.com"),
+                    Subject = subject,
+                    Body = Message
+                };
+                mail.IsBodyHtml = true;
+                mail.To.Add(new MailAddress("komalshres@gmail.com"));
+
+                var client = new SmtpClient()
+                {
+                    Port = 587,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Host = "smtp.gmail.com",
+                    EnableSsl = true,
+                    Credentials = credentials
+                };
+                client.Send(mail);
+                return "Email Sent Successfully!";
+            }
+            catch (System.Exception e)
             {
-                Port = 587,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Host = "smtp.gmail.com",
-                EnableSsl = true,
-                Credentials = credentials
-            };
-            client.Send(mail);
-            return "Email Sent Successfully!";
+                return e.Message;
+            }
+
         }
-        catch (System.Exception e)
-        {
-            return e.Message;
-        }
-        
-    }
         public IActionResult ProductDetail(int id)
         {
             var singleProduct = _productRepo.GetSingle(x => x.Id == id);

@@ -54,14 +54,13 @@ namespace TBSTech.Areas.Admin.Controllers
             var data = _courseRepo.GetSingle(x => x.Id == id);
             return View(nameof(New), data);
         }
-        public IActionResult Delete(int id,IFormFile file)
+           public IActionResult Delete(int id, IFormFile file)
         {
-           
-            var courseToDelete= _courseRepo.GetSingle(x=>x.Id==id);
-           
-            _courseRepo.Delete(x=>x.Id == id);
+            string folderName = "CourseImages";
+            var courseToDelete = _courseRepo.GetSingle(x => x.Id == id);
+            DeletePhoto(file, folderName, courseToDelete.ImageUrl);
+            _courseRepo.Delete(x => x.Id == id);
             _courseRepo.Commit();
-            deleteNotify();
             return RedirectToAction(nameof(Index));
         }
          

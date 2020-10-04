@@ -26,6 +26,7 @@ namespace TBSTech.Areas.Admin.Controllers
         }
         public IActionResult New()
         {
+            ViewBag.Message = "New";
             var data = _context.ContactDetails.ToList().Count();
             if (data >0)
             {

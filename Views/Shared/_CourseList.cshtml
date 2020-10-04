@@ -14,7 +14,7 @@
                         <h3>@item.CourseName</h3>
                         <p>
                             @item.CourseStartDate.ToString("MMMM dd, yyyy")</p>
-                        <small style="color:red;">@item.Time1 </small>| <small style="color:blue;">@item.Time2 </small>| <small style="color:green;">@item.Time3</small>
+                        <small style="color:cyan;">@item.Time1 </small>| <small style="color:blue;">@item.Time2 </small>| <small style="color:green;">@item.Time3</small>
                         <br/>
                        <a asp-action="Course" asp-controller="Home" asp-route-id="@item.Id" class="nav-link"> <div class="default-btn">More</div> </a>
                     </div>

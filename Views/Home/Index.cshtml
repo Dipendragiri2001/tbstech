@@ -152,6 +152,22 @@ company, particularly in marketing and services.</li></ul>
                     </div>
                     </div>
                      @await Html.PartialAsync("_Video")
+                        <div class="client-area pb-70">
+                <div class="container-fluid p-0">
+                <div class="team-margin scetion-title text-center">
+                    <span>Training</span>
+                    <h2>Our Courses</h2>
+                    <p>
+                        List of some of our courses.
+                    </p>
+                </div>
+
+                <div class="client-slider owl-carousel owl-theme">
+                   
+                 @await Html.PartialAsync("_CourseList")
+                </div>
+            </div>
+        </div>
                     <div class="client-area pb-70">
                 <div class="container-fluid p-0">
                 <div class="team-margin scetion-title text-center">

@@ -225,6 +225,27 @@
               </li>
             </ul>
           </li>
+           <li class="nav-item has-treeview">
+            <a class="nav-link">
+              <i class="nav-icon fab fa-product-hunt"></i>
+              <p>
+                Contact Details
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a asp-controller="ContactDetails" asp-action="Index" class="nav-link">
+                  <p>Show Contact Detail</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a asp-controller="ContactDetails" asp-action="New" class="nav-link">
+                  <p>Add Contact Detail</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item has-treeview">
             <a asp-controller="Password" asp-action="ChangePassword" class="nav-link">
               <i class="nav-icon fab fa-product-hunt"></i>

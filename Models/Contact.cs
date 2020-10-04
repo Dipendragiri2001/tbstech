@@ -8,6 +8,5 @@ namespace TBSTech.Models
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Course { get; set; }
-        
     }
 }

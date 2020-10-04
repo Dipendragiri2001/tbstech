@@ -9,8 +9,8 @@ using TBSTech.Data;
 namespace TBSTech.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201004155852_new migratsas")]
-    partial class newmigratsas
+    [Migration("20201004165723_dsads")]
+    partial class dsads
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -296,9 +296,6 @@ namespace TBSTech.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CourseId1")
-                        .HasColumnType("int");
-
                     b.Property<string>("DayCourse")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
@@ -312,9 +309,7 @@ namespace TBSTech.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.HasIndex("CourseId1");
-
-                    b.ToTable("CourseTimes");
+                    b.ToTable("CourseTime");
                 });
 
             modelBuilder.Entity("TBSTech.Models.Member", b =>
@@ -461,14 +456,10 @@ namespace TBSTech.Migrations
             modelBuilder.Entity("TBSTech.Models.CourseTime", b =>
                 {
                     b.HasOne("TBSTech.Models.Course", "Course")
-                        .WithMany()
+                        .WithMany("CourseTimes")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("TBSTech.Models.Course", null)
-                        .WithMany("CourseTimes")
-                        .HasForeignKey("CourseId1");
                 });
 #pragma warning restore 612, 618
         }

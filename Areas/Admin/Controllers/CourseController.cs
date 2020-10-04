@@ -33,31 +33,55 @@ namespace TBSTech.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult New(Course model, string message)
+        public IActionResult New(Course model,IFormFile file,string message)
         {
+             string folderName = "CourseImages";
+            string newImage;
             
             if (message.Equals("Update"))
             {
-                
+                string oldImage = _courseRepo.GetSingle(x => x.Id == model.Id).ImageUrl;
+                if (file != null)
+                {
+                    Console.WriteLine(oldImage);
+                    string fileName = Guid.NewGuid().ToString() + file.FileName;
+                    newImage = fileName;
+                    UpdatePhoto(file, folderName, fileName, oldImage);
+                    model.ImageUrl = newImage;
+
+                    _courseRepo.Update(model);
+                }else{
+                model.ImageUrl = oldImage;
                 _courseRepo.Update(model);
-                updateNotify();
+                }
             }
             else if (message.Equals("New"))
             {
+                if(file!=null)
+                {
+                string fileName = Guid.NewGuid().ToString() + file.FileName;
+
+                model.ImageUrl = UploadPhoto(file, folderName,fileName);
                 _courseRepo.Insert(model);
-                addNotify();
+                }else{
+                    photoNotify();
+                    ViewBag.Message = "New";
+                    return View(model);
+                }
             }
             _courseRepo.Commit();
-            return RedirectToAction(nameof(Index));
-        }
 
-        public IActionResult Update(int id)
+            return RedirectToAction(nameof(Index));
+
+
+        }
+        public IActionResult Update(int id,IFormFile file)
         {
-            ViewBag.Message = "Update";
-            var data = _context.Courses.Include(x=>x.CourseTimes).FirstOrDefault(x => x.Id == id);
+              ViewBag.Message = "Update";
+            var data = _courseRepo.GetSingle(x => x.Id == id);
             return View(nameof(New), data);
         }
-        public IActionResult Delete(int id, IFormFile file)
+       public IActionResult Delete(int id, IFormFile file)
         {
             string folderName = "CourseImages";
             var courseToDelete = _courseRepo.GetSingle(x => x.Id == id);
@@ -66,70 +90,10 @@ namespace TBSTech.Areas.Admin.Controllers
             _courseRepo.Commit();
             return RedirectToAction(nameof(Index));
         }
-        public IActionResult CourseTimeIndex()
-        {
-            var data = _context.Courses.Include(x=>x.CourseTimes).ToList();
-            return View(data);
-        }
-          public IActionResult CourseTime(int id)
-        {
-            var data = _context.CourseTimes.Include(x=>x.Course).Where(x=>x.CourseId==id).OrderBy(x=>x.Id).ToList();
-            if(_context.CourseTimes.FirstOrDefault(x=>x.Id ==id) == null)
-            {
-                noCourseNotify();
-                return RedirectToAction(nameof(CourseTimeIndex));
-            }
-            return View(data);
-        }
-        public IActionResult NewCourseTime(int id)
-        {
-            ViewBag.Message = "New";
+   
 
-           ViewBag.CourseName= _context.Courses.FirstOrDefault(x=>x.Id== id).CourseName;
-           ViewBag.CourseId= _context.Courses.FirstOrDefault(x=>x.Id== id).Id;
-
-            
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult NewCourseTime(CourseTime model, string message)
-        {
-            Console.WriteLine(model.CourseId);
-           ViewBag.CourseName= _context.Courses.FirstOrDefault(x=>x.Id== model.CourseId).CourseName;
-
-            var courseTime = _context.CourseTimes.FirstOrDefault(x=>x.CourseId == model.CourseId);
-            if (message.Equals("Update"))
-            {
-                _context.CourseTimes.Update(courseTime);
-                updateNotify();
-            }
-            else if (message.Equals("New"))
-            {
-               
-                _context.CourseTimes.Add(model);
-                addNotify();
-            }
-            _context.SaveChanges();
-            return RedirectToAction(nameof(CourseTimeIndex));
-        }
+       
       
-          public IActionResult UpdateCourseTime(int id)
-        {
-            ViewBag.Message = "Update";
-           ViewBag.CourseName= _context.Courses.FirstOrDefault(x=>x.Id== id).CourseName;
-
-            var data = _context.CourseTimes.FirstOrDefault(x => x.Id == id);
-            return View(nameof(NewCourseTime), data);
-        }
-         public IActionResult DeleteCourseTime(int id, IFormFile file)
-        {
-            
-            var courseToDelete = _context.CourseTimes.FirstOrDefault(x=>x.Id ==id);
-           
-            _context.Remove(courseToDelete);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(CourseTime));
-        }
+      
     }
 }

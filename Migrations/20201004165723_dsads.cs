@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TBSTech.Migrations
 {
-    public partial class newmigrati : Migration
+    public partial class dsads : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -86,6 +86,9 @@ namespace TBSTech.Migrations
                     CourseLink = table.Column<string>(nullable: true),
                     CourseDescription = table.Column<string>(nullable: true),
                     CourseStartDate = table.Column<DateTime>(nullable: false),
+                    Time1 = table.Column<string>(nullable: true),
+                    Time2 = table.Column<string>(nullable: true),
+                    Time3 = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -262,7 +265,7 @@ namespace TBSTech.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CourseTimes",
+                name: "CourseTime",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -270,24 +273,17 @@ namespace TBSTech.Migrations
                     MorningCourse = table.Column<string>(nullable: true),
                     DayCourse = table.Column<string>(nullable: true),
                     EveningCourse = table.Column<string>(nullable: true),
-                    CourseId = table.Column<int>(nullable: false),
-                    CourseId1 = table.Column<int>(nullable: true)
+                    CourseId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CourseTimes", x => x.Id);
+                    table.PrimaryKey("PK_CourseTime", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CourseTimes_Courses_CourseId",
+                        name: "FK_CourseTime_Courses_CourseId",
                         column: x => x.CourseId,
                         principalTable: "Courses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CourseTimes_Courses_CourseId1",
-                        column: x => x.CourseId1,
-                        principalTable: "Courses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -328,14 +324,9 @@ namespace TBSTech.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_CourseTimes_CourseId",
-                table: "CourseTimes",
+                name: "IX_CourseTime_CourseId",
+                table: "CourseTime",
                 column: "CourseId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CourseTimes_CourseId1",
-                table: "CourseTimes",
-                column: "CourseId1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -362,7 +353,7 @@ namespace TBSTech.Migrations
                 name: "ContactDetails");
 
             migrationBuilder.DropTable(
-                name: "CourseTimes");
+                name: "CourseTime");
 
             migrationBuilder.DropTable(
                 name: "Members");

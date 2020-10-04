@@ -176,6 +176,7 @@ Default Btn Style
 ===================================*/
 .default-btn {
   background-color: #00abbe;
+  border: 1px solid #fff;
   padding: 12px 42px;
   color: #fff;
   border-radius: 50px;
@@ -218,6 +219,8 @@ Default Btn Style
 .default-btn:hover {
   top: 0;
   background-color: #fff;
+  border: 1px solid #00abbe;
+  transition: 0.3s all ease;
   color: #00abbe;
 }
 
@@ -4769,7 +4772,7 @@ video {
 }
 
 .popup {
-  margin: 10% auto;
+  margin: 9% auto;
   padding: 20px;
   background: #fff;
   border-radius: 5px;
@@ -4806,7 +4809,16 @@ video {
     width: 70%;
   }
   .popup {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1025px) and (min-width: 701px) {
+  .box {
     width: 70%;
+  }
+  .popup {
+    margin: 20% auto;
+    width: 90%;
   }
 }
 #popup1 button {

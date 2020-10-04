@@ -14,7 +14,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Course</li>
+              <li class="breadcrumb-item active">Course Time</li>
             </ol>
           </div>
         </div>
@@ -25,8 +25,8 @@
     <section class="content">
 <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Course</h3>
-                    <a asp-controller="Course" asp-action="New" style="background-color:#007bff;text-align:center;float:right;color:white;width:150px;border-radius:20px;cursor:pointer;padding:10px;">Add Course</a>
+          <h3 class="card-title">Course Time</h3>
+             <a asp-controller="Course" asp-action="NewCourseTime" style="background-color:#007bff;text-align:center;float:right;color:white;width:150px;border-radius:20px;cursor:pointer;padding:10px;">Add Course</a>
 
         </div>
         <div class="card-body p-0">
@@ -40,7 +40,7 @@
                           Name
                       </th>
                       <th style="width: 60%;">
-                        Description
+                        Course Start Date
                       </th>
                     
                       <th style="width: 19%">
@@ -64,23 +64,19 @@
                       </td>
                       <td  style="text-align:justify;">
                           <small>
-                              @Html.Raw(item.CourseDescription)
+                              @item.CourseStartDate
                           </small>
                       </td>
                       <td>
-                          <a class="btn btn-info btn-sm" asp-controller="Course" asp-action="Update" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
-
-                              
-                             <b>+</b> Edit&nbsp;&nbsp;&nbsp;&nbsp;
-                          </a>
                           <a class="btn btn-info btn-sm" asp-controller="Course" asp-action="CourseTime" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
-
                               
-                             <b>+</b> Show CourseTime&nbsp;&nbsp;&nbsp;&nbsp;
+                             <b>-</b> Show Course Time
                           </a>
-                          <a class="btn btn-danger btn-sm" asp-controller="Course" asp-action="Delete" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
+                      </td>
+                       <td>
+                          <a class="btn btn-info btn-sm" asp-controller="Course" asp-action="NewCourseTime" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
                               
-                             <b>-</b> Delete
+                             <b>-</b> Add Course Time
                           </a>
                       </td>
                   </tr>

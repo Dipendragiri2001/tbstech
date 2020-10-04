@@ -1,31 +1,44 @@
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
+using TBSTech.Data;
 using TBSTech.Models;
 using TBSTech.Repository;
 
 namespace TBSTech.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ContactDetailsController : BaseController
     {
         private readonly IContactDetailsRepository _contactDetailsRepo;
-        public ContactDetailsController(IToastNotification _clientNotification, IContactDetailsRepository contactDetailsRepo) : base(_clientNotification)
+        private readonly ApplicationDbContext _context;
+        public ContactDetailsController(IToastNotification _clientNotification, ApplicationDbContext context,
+         IContactDetailsRepository contactDetailsRepo) : base(_clientNotification)
         {
+            _context = context;
             _contactDetailsRepo = contactDetailsRepo;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var data = _contactDetailsRepo.Collection();
+            return View(data);
         }
         public IActionResult New()
         {
+            var data = _context.ContactDetails.ToList().Count();
+            if (data >0)
+            {
+                contactDetailsNotify();
+                return RedirectToAction(nameof(Index));
+            }
             return View();
         }
         [HttpPost]
         public IActionResult New(ContactDetail model, string message)
         {
 
-            if (message.Equals("Update"))  
+            if (message.Equals("Update"))
             {
                 _contactDetailsRepo.Update(model);
                 updateNotify();

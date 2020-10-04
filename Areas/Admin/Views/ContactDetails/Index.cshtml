@@ -1,4 +1,4 @@
- @model List<TBSTech.Models.Course>
+ @model List<TBSTech.Models.ContactDetail>
   @{
     var N=0;
 }
@@ -9,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Course</h1>
+            <h1>Contact Details</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Course</li>
+              <li class="breadcrumb-item active">Your Contact Detail</li>
             </ol>
           </div>
         </div>
@@ -25,25 +25,31 @@
     <section class="content">
 <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Course</h3>
-                    <a asp-controller="Course" asp-action="New" style="background-color:#007bff;text-align:center;float:right;color:white;width:150px;border-radius:20px;cursor:pointer;padding:10px;">Add Course</a>
+          <h3 class="card-title">Members</h3>
+                              <a asp-controller="Member" asp-action="New" style="background-color:#007bff;text-align:center;float:right;color:white;width:150px;border-radius:20px;cursor:pointer;padding:10px;">Add Member</a>
 
         </div>
         <div class="card-body p-0">
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">
+                      <th style="width: 10%">
                          #
                       </th>
                       <th style="width: 20%">
-                          Name
+                          Phone Number
                       </th>
-                      <th style="width: 60%;">
-                        Description
+                      <th style="width: 25%;">
+                          Telephone
+                      </th>
+                      <th style="width: 20%;">
+                        Address
+                      </th>
+                      <th style="width: 20%;">
+                        E-mail
                       </th>
                     
-                      <th style="width: 19%">
+                      <th style="width: 25%">
                       </th>
                   </tr>
               </thead>
@@ -59,26 +65,30 @@
                           @N
                       </td>
                       <td>
-                              @item.CourseName
-                          <br/>
+                           <strong>   @item.PhoneNumber</strong>
+                          
                       </td>
-                      <td  style="text-align:justify;">
-                          <small>
-                              @Html.Raw(item.CourseDescription)
-                          </small>
+                        <td  style="text-align:justify;">
+                          <strong>
+                              @item.TelePhone
+                          </strong>
                       </td>
+                       <td>
+                           <strong>   @item.Address</strong>
+                          
+                      </td>
+                       <td>
+                           <strong>   @item.Email</strong>
+                          
+                      </td>
+                    
                       <td>
-                          <a class="btn btn-info btn-sm" asp-controller="Course" asp-action="Update" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
+                          <a class="btn btn-info btn-sm" asp-controller="Member" asp-action="Update" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
 
                               
                              <b>+</b> Edit&nbsp;&nbsp;&nbsp;&nbsp;
                           </a>
-                          <a class="btn btn-info btn-sm" asp-controller="Course" asp-action="CourseTime" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
-
-                              
-                             <b>+</b> Show CourseTime&nbsp;&nbsp;&nbsp;&nbsp;
-                          </a>
-                          <a class="btn btn-danger btn-sm" asp-controller="Course" asp-action="Delete" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
+                          <a class="btn btn-danger btn-sm" asp-controller="Member" asp-action="Delete" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
                               
                              <b>-</b> Delete
                           </a>

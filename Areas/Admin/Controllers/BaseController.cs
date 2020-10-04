@@ -40,6 +40,14 @@ namespace TBSTech.Areas.Admin.Controllers
         {
             __clientNotification.AddAlertToastMessage("You Cannot Add More Than One Banner");
         }
+          public void noCourseNotify()
+        {
+            __clientNotification.AddAlertToastMessage("No Course Time Found!! Please Add The Course Time!!");
+        }
+           public void contactDetailsNotify()
+        {
+            __clientNotification.AddAlertToastMessage("You Cannot Add More Than One Contact Details Please Update The Existing One");
+        }
         public string UploadPhoto(IFormFile file, string folderName, string fileName)
         {
 

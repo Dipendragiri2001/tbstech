@@ -1,9 +1,10 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TBSTech.Migrations
 {
-    public partial class yyssaaa : Migration
+    public partial class newmigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,7 +52,7 @@ namespace TBSTech.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ImageUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -60,16 +61,32 @@ namespace TBSTech.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ContactDetails",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    PhoneNumber = table.Column<int>(nullable: false),
+                    TelePhone = table.Column<int>(nullable: false),
+                    Address = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContactDetails", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Courses",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     CourseName = table.Column<string>(nullable: true),
                     CourseLink = table.Column<string>(nullable: true),
                     CourseDescription = table.Column<string>(nullable: true),
-                    CourseStartTime = table.Column<DateTime>(nullable: false),
-                    CourseEndTime = table.Column<DateTime>(nullable: false)
+                    CourseStartDate = table.Column<DateTime>(nullable: false),
+                    ImageUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -81,7 +98,7 @@ namespace TBSTech.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     MemberName = table.Column<string>(nullable: true),
                     imageUrl = table.Column<string>(nullable: true),
                     Position = table.Column<string>(nullable: true)
@@ -96,9 +113,10 @@ namespace TBSTech.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ProductName = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
+                    ShortDescription = table.Column<string>(maxLength: 100, nullable: true),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     ImageUrl = table.Column<string>(nullable: false)
                 },
@@ -112,7 +130,7 @@ namespace TBSTech.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ServiceName = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
@@ -128,7 +146,7 @@ namespace TBSTech.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     VideoName = table.Column<string>(nullable: true),
                     VideoUrl = table.Column<string>(nullable: true)
                 },
@@ -142,7 +160,7 @@ namespace TBSTech.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -163,7 +181,7 @@ namespace TBSTech.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -243,6 +261,27 @@ namespace TBSTech.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "CourseTimes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CourseStartTime = table.Column<string>(nullable: true),
+                    CourseEndTime = table.Column<string>(nullable: true),
+                    CourseId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CourseTimes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CourseTimes_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -252,8 +291,7 @@ namespace TBSTech.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true,
-                filter: "[NormalizedName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -279,8 +317,12 @@ namespace TBSTech.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CourseTimes_CourseId",
+                table: "CourseTimes",
+                column: "CourseId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -304,7 +346,10 @@ namespace TBSTech.Migrations
                 name: "Banners");
 
             migrationBuilder.DropTable(
-                name: "Courses");
+                name: "ContactDetails");
+
+            migrationBuilder.DropTable(
+                name: "CourseTimes");
 
             migrationBuilder.DropTable(
                 name: "Members");
@@ -323,6 +368,9 @@ namespace TBSTech.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Courses");
         }
     }
 }

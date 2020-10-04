@@ -60,8 +60,10 @@ Here is the full detail of the service you just clicked.                    </p>
             <div class="course">
                 <div class="course-detail">
                     <h1>@Model.CourseName</h1>
-                    <small>Starts: @Model.CourseStartTime</small><br/>
-                    <small>Ends: @Model.CourseEndTime</small>
+                    <small>Date: @Model.CourseStartDate</small>
+                  
+                    
+
                     <p>@Html.Raw(Model.CourseDescription)</p>  
                     <a href="#popup1"><div class="default-btn">Apply Now</div></a>
                 </div>

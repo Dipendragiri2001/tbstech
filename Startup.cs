@@ -31,7 +31,7 @@ namespace TBSTech
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -43,6 +43,8 @@ namespace TBSTech
            services.AddScoped<IMemberRepository,MemberRepository>();
            services.AddScoped<IVideoRepository,VideoRepository>();
            services.AddScoped<IBannerRepository,BannerRepository>();
+           services.AddScoped<IContactDetailsRepository,ContactDetailsRepository>();
+
            services.AddMvc().AddNToastNotifyToastr(new ToastrOptions()
 {
             ProgressBar = false,

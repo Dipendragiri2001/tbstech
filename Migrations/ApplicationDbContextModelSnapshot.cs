@@ -271,6 +271,15 @@ namespace TBSTech.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<string>("Time1")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Time2")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Time3")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.HasKey("Id");
 
                     b.ToTable("Courses");

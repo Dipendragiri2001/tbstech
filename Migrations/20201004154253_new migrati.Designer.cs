@@ -9,8 +9,8 @@ using TBSTech.Data;
 namespace TBSTech.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201004141031_sdsa")]
-    partial class sdsa
+    [Migration("20201004154253_new migrati")]
+    partial class newmigrati
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

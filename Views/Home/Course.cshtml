@@ -60,7 +60,11 @@ Here is the full detail of the service you just clicked.                    </p>
             <div class="course">
                 <div class="course-detail">
                     <h1>@Model.CourseName</h1>
-                    <small>Date: @Model.CourseStartDate</small>
+                    <small><b>Date</b>: @Model.CourseStartDate.ToString("MMMM dd, yyyy")</small><br/>
+                                          <small><b>Morning</b>: @Model.Time1</small> |
+                                          <small><b>Afternoon</b>: @Model.Time2</small> |
+                                          <small><b>Evening</b>: @Model.Time3</small>
+
                   
                     
 

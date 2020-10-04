@@ -72,10 +72,10 @@ namespace TBSTech.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Contact(string firstName, string lastName, string phonenumber, string email, string courses, string message)
+        public IActionResult Contact(string firstName, string phonenumber, string email, string courses, string message)
         {
 
-            string msg = "First Name: " + firstName + "<br/> " + "Last Name: " + lastName + "<br/> " + "Phone Number: " + phonenumber + "<br/>" + "Student Email: " + email + "<br/> <br/>" + "<b>" + "Student Message: " + message + "<b>";
+            string msg = "First Name: " + firstName + "<br/> " + "Phone Number: " + phonenumber + "<br/>" + "Student Email: " + email + "<br/> <br/>" + "<b>" + "Student Message: " + message + "<b>";
             string s = SendEmail(msg, courses);
             System.Console.WriteLine(s);
             return View();

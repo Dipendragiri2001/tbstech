@@ -9,8 +9,8 @@ using TBSTech.Data;
 namespace TBSTech.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201004112055_new migratio")]
-    partial class newmigratio
+    [Migration("20201004155549_new migrats")]
+    partial class newmigrats
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -273,6 +273,15 @@ namespace TBSTech.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<DateTime>("Time1")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("Time2")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("Time3")
+                        .HasColumnType("datetime(6)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
@@ -287,6 +296,9 @@ namespace TBSTech.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CourseId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("DayCourse")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
@@ -299,6 +311,8 @@ namespace TBSTech.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CourseId");
+
+                    b.HasIndex("CourseId1");
 
                     b.ToTable("CourseTimes");
                 });
@@ -447,10 +461,14 @@ namespace TBSTech.Migrations
             modelBuilder.Entity("TBSTech.Models.CourseTime", b =>
                 {
                     b.HasOne("TBSTech.Models.Course", "Course")
-                        .WithMany("CourseTimes")
+                        .WithMany()
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("TBSTech.Models.Course", null)
+                        .WithMany("CourseTimes")
+                        .HasForeignKey("CourseId1");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,8 +10,11 @@ namespace TBSTech.Models
         public string CourseLink { get; set; }
         public string CourseDescription { get; set; }
         public DateTime CourseStartDate { get; set; }
+        public string Time1 { get; set; }
+        public string Time2 { get; set; }
+        public string Time3 { get; set; }
         public string ImageUrl { get; set; }
-        public List<CourseTime> CourseTimes {get; set;}
-        
+        public List<CourseTime> CourseTimes { get; set; }
+
     }
 }

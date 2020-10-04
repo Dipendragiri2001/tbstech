@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TBSTech.Migrations
 {
-    public partial class newmigrations : Migration
+    public partial class newmigrati : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -267,9 +267,11 @@ namespace TBSTech.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    CourseStartTime = table.Column<string>(nullable: true),
-                    CourseEndTime = table.Column<string>(nullable: true),
-                    CourseId = table.Column<int>(nullable: false)
+                    MorningCourse = table.Column<string>(nullable: true),
+                    DayCourse = table.Column<string>(nullable: true),
+                    EveningCourse = table.Column<string>(nullable: true),
+                    CourseId = table.Column<int>(nullable: false),
+                    CourseId1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -280,6 +282,12 @@ namespace TBSTech.Migrations
                         principalTable: "Courses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CourseTimes_Courses_CourseId1",
+                        column: x => x.CourseId1,
+                        principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -323,6 +331,11 @@ namespace TBSTech.Migrations
                 name: "IX_CourseTimes_CourseId",
                 table: "CourseTimes",
                 column: "CourseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CourseTimes_CourseId1",
+                table: "CourseTimes",
+                column: "CourseId1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

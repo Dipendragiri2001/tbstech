@@ -9,8 +9,8 @@ using TBSTech.Data;
 namespace TBSTech.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201004103457_new migrations")]
-    partial class newmigrations
+    [Migration("20201004155852_new migratsas")]
+    partial class newmigratsas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -273,6 +273,15 @@ namespace TBSTech.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<string>("Time1")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Time2")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Time3")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
@@ -284,18 +293,26 @@ namespace TBSTech.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("CourseEndTime")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CourseStartTime")
+                    b.Property<int?>("CourseId1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DayCourse")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("EveningCourse")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("MorningCourse")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CourseId");
+
+                    b.HasIndex("CourseId1");
 
                     b.ToTable("CourseTimes");
                 });
@@ -444,10 +461,14 @@ namespace TBSTech.Migrations
             modelBuilder.Entity("TBSTech.Models.CourseTime", b =>
                 {
                     b.HasOne("TBSTech.Models.Course", "Course")
-                        .WithMany("CourseTimes")
+                        .WithMany()
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("TBSTech.Models.Course", null)
+                        .WithMany("CourseTimes")
+                        .HasForeignKey("CourseId1");
                 });
 #pragma warning restore 612, 618
         }

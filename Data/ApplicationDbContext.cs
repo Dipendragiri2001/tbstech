@@ -20,14 +20,12 @@ namespace TBSTech.Data
         public DbSet<Video> Videos { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<ContactDetail> ContactDetails { get; set; }
-        public DbSet<CourseTime> CourseTimes { get; set; }
-
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<CourseTime>().HasOne(x=>x.Course).WithMany()
-            .HasForeignKey(x=>x.CourseId);
+        
         }
 
     }

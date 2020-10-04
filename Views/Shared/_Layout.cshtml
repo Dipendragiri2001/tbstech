@@ -82,7 +82,7 @@
                                 </li>
                                 
                                 <li class="nav-item">
-                                    <a asp-asp-controller="Home" asp-action="Course" class="nav-link">
+                                    <a class="nav-link" style="cursor:pointer;">
                                         Courses 
                                         <i class='bx bxs-chevron-right'></i>
                                     </a>
@@ -152,17 +152,17 @@ Digital, Computer, Web and Networking field around the globe.</p>
 									<li>
 										<i class='flaticon-pin'></i>
 										Address
-										<span>Putalisadak, Kathmandu</span>
+										<span>@await Html.PartialAsync("_Location")</span>
 									</li>
 									<li>
 										<i class="flaticon-paper-plane"></i>
 										Email
-										<span>info@tbstech.net</span>
+										<span>@await Html.PartialAsync("_Email")</span>
 									</li>
 									<li>
 										<i class="flaticon-call"></i>
 										Phone
-										<span>+977-98XXXXXXXX</span>
+										<span>@await Html.PartialAsync("_ContactDetails")</span>
 									</li>
 								</ul>
                             </div>
@@ -202,15 +202,15 @@ Digital, Computer, Web and Networking field around the globe.</p>
           <div class="details">
             <div>
               <p>phone number</p>
-              <span><a href="">+977-XXXXXXX</a></span>
+              <span><a href="">@await Html.PartialAsync("_ContactDetails")</a></span>
             </div> 
             <div> 
               <p>email address</p>
-              <span style="text-decoration:lowercase;">info@tbstech.net</span>
+              <span style="text-decoration:lowercase;">@await Html.PartialAsync("_Email")</span>
             </div>
             <div>
               <p>our location</p>
-              <span>Putalisadak<br> Kathmandu</span>
+              <span>@await Html.PartialAsync("_Location")</span>
             </div> 
           </div>  
         </div>

@@ -1,5 +1,4 @@
 @model TBSTech.Models.Course 
-<link rel="stylesheet" href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.min.css">
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -42,11 +41,20 @@
                 <label asp-for="CourseName">Course Name</label>
                 <input type="text" asp-for="CourseName" id="inputName" class="form-control">
               </div>
+              <div class="form-group">
+                <label asp-for="CourseDuration">Course Duration</label>
+                <input type="text" asp-for="CourseDuration" id="inputName" class="form-control">
+              </div>
               
-              <div  class="form-group">
+              @* <div  class="form-group">
                 
                 <label asp-for="CourseDescription">Course Description</label>
                 <textarea id="editor" asp-for="CourseDescription"></textarea>
+              </div> *@
+               <div class="form-group">
+                 <label asp-for="CourseDescription">Course Description</label>
+                <textarea asp-for="CourseDescription" class="textarea" placeholder="Place some text here"
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
               </div>
               
               <div class="form-group">
@@ -88,13 +96,12 @@
   </div>
   
 @section scripts {
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="~/lib/Trumbowyg-master/dist/trumbowyg.min.js"></script>
-  <script>
-    $('#editor').trumbowyg();
-    </script>
-    @* // class
-    // id
-    // nav html element *@
+
+    <script> 
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
+</script>
     
 }

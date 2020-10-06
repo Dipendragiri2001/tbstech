@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.V3.Pages.Account.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using TBSTech.Data;
+using TBSTech.Models;
 using TBSTech.Repository;
 using TBSTech.ViewModels;
 
@@ -23,7 +25,9 @@ namespace TBSTech.Areas.Admin.Controllers
         private readonly IMemberRepository _memberRepo;
         private readonly ICourseRepository _courseRepo;
         private readonly IServiceRepository _serviceRepo;
-        public HomeController(SignInManager<IdentityUser> signInManager, 
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(SignInManager<IdentityUser> signInManager, ApplicationDbContext context,
             ILogger<LoginModel> logger,
             UserManager<IdentityUser> userManager,IProductRepository productRepo,
          IServiceRepository serviceRepo, 
@@ -37,6 +41,8 @@ namespace TBSTech.Areas.Admin.Controllers
             _logger = logger;
             _userManager = userManager;
             _productRepo = productRepo;
+            _context = context;
+
 
         }
         [HttpGet]
@@ -50,6 +56,22 @@ namespace TBSTech.Areas.Admin.Controllers
             ViewBag.TotalMember = totalMember;
             ViewBag.TotalCourse = totalCourse;
             ViewBag.TotalService = totalService;
+
+            return View();
+        }
+        public  IActionResult UserManager()
+        {
+            var data =  _context.Users.ToList();
+            return View(data);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> NewUser(User model)
+        {
+          
+            var newUser = new IdentityUser {UserName =model.Username , Email=model.Email};
+
+            await _userManager.CreateAsync(newUser,model.Password);
 
             return View();
         }

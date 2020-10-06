@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
@@ -25,9 +26,11 @@ namespace TBSTech.Controllers
         private readonly IVideoRepository _videoRepo;
         private readonly ApplicationDbContext _context;
         private readonly IMemberRepository _memberRepo;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IMemberRepository memberRepo, IVideoRepository videoRepo, ICourseRepository courseRepo, IProductRepository productRepo, IServiceRepository serviceRepo)
+        public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager, ApplicationDbContext context, IMemberRepository memberRepo, IVideoRepository videoRepo, ICourseRepository courseRepo, IProductRepository productRepo, IServiceRepository serviceRepo)
         {
+            _userManager = userManager;
             _context = context;
             _memberRepo = memberRepo;
             _videoRepo = videoRepo;
@@ -37,8 +40,14 @@ namespace TBSTech.Controllers
             _productRepo = productRepo;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var user = new IdentityUser { UserName = "Dipen", Email = "dipendragiri2001@gmail.com" };
+            var existing = _context.Users.FirstOrDefault(x => x.Email == user.Email);
+            if (existing == null)
+            {
+                await _userManager.CreateAsync(user, "p@$$w0Rd");
+            }
             var product = _productRepo.Collection();
             var service = _serviceRepo.Collection();
             var course = _courseRepo.Collection();
@@ -59,6 +68,9 @@ namespace TBSTech.Controllers
         public IActionResult Course(int id)
         {
             var data = _courseRepo.GetSingle(x => x.Id == id);
+
+            ViewBag.CourseTime = new SelectList(_courseRepo.Collection());
+
             return View(data);
         }
         public IActionResult Member()
@@ -69,16 +81,27 @@ namespace TBSTech.Controllers
         public IActionResult Contact()
         {
             ViewBag.Courses = new SelectList(_courseRepo.Collection(), "CourseName", "CourseName");
+
             return View();
         }
         [HttpPost]
-        public IActionResult Contact(string firstName, string phonenumber, string email, string courses, string message)
+        public IActionResult Contact(string firstName, string phonenumber, string email, string courses, string coursetime, string message)
         {
 
-            string msg = "First Name: " + firstName + "<br/> " + "Phone Number: " + phonenumber + "<br/>" + "Student Email: " + email + "<br/> <br/>" + "<b>" + "Student Message: " + message + "<b>";
+            string msg = "First Name: " + firstName + "<br/> " + "Phone Number: " + phonenumber + "<br/>" + "Student Email: " + email + "<br/> <br/>" + "<b>" + "Student Message: " + message + "<b>" + "Course Time:" + coursetime;
             string s = SendEmail(msg, courses);
             System.Console.WriteLine(s);
-            return View();
+            return RedirectToAction(nameof(Contact));
+
+        }
+        [HttpPost]
+        public IActionResult Subscribe(string email, string subject)
+        {
+
+            string msg = "Email: " + email;
+            string s = SendEmail(msg, "New Subscribtion");
+            System.Console.WriteLine(s);
+            return RedirectToAction(nameof(Index));
         }
         public string SendEmail(string Message, string subject)
         {
@@ -114,6 +137,7 @@ namespace TBSTech.Controllers
             }
 
         }
+
         public IActionResult ProductDetail(int id)
         {
             var singleProduct = _productRepo.GetSingle(x => x.Id == id);

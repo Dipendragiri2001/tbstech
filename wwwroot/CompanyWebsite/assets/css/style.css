@@ -4550,6 +4550,7 @@ Animation CSS End
 }
 .course .course-detail {
   margin-bottom: 30px;
+  width: 100%;
 }
 .course-detail small {
   color: #000;

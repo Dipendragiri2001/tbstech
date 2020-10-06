@@ -42,11 +42,9 @@
                       <th style="width: 20%;">
                           Service Image
                       </th>
-                      <th style="width: 45%;">
-                        Service Description
-                      </th>
+                     
                     
-                      <th style="width: 10%">
+                      <th style="width: 20%">
                       </th>
                   </tr>
               </thead>
@@ -64,18 +62,12 @@
                       <td>
                               @item.ServiceName
                           <br/>
-                          <small>
-                              @item.CreatedAt
-                          </small>
+                         
                       </td>
                       <td>
                           <img src="~/ServiceImages/@item.ImageUrl" style="border-radius:50%;object-fit:cover;" width="150px" height="150px">
                       </td>
-                      <td  style="text-align:justify;">
-                          <small>
-                              @Html.Raw(item.Description)
-                          </small>
-                      </td>
+                    
                       <td>
                           <a class="btn btn-info btn-sm" asp-controller="Service" asp-action="Update" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
 

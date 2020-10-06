@@ -64,7 +64,16 @@
                                     <a href="/" class="nav-link active">
                                         Home 
                                 </li>
-                                
+                                 <li class="nav-item">
+                                    <a class="nav-link" style="cursor:pointer;">
+                                        Courses 
+                                        <i class='bx bxs-chevron-right'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                       @await Html.PartialAsync("_Course")
+                                    </ul>
+                                    
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" style="cursor:pointer;">
                                         Services 
@@ -81,16 +90,7 @@
                                     </a>
                                 </li>
                                 
-                                <li class="nav-item">
-                                    <a class="nav-link" style="cursor:pointer;">
-                                        Courses 
-                                        <i class='bx bxs-chevron-right'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                       @await Html.PartialAsync("_Course")
-                                    </ul>
-                                    
-                                </li>
+                               
                                 <li class="nav-item">
                                     <a asp-asp-controller="Home" asp-action="Member" class="nav-link" class="nav-link">
                                         Our Team
@@ -180,6 +180,15 @@ Digital, Computer, Web and Networking field around the globe.</p>
 											<i class='bx bxl-instagram'></i>
 										</a>
 									</li>
+                                    	<li>
+										<a href="#">
+											<i class='bx bxl-linkedin'></i>
+										</a>
+									</li>	<li>
+										<a href="#">
+											<i class='bx bxl-youtube'></i>
+										</a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -229,12 +238,17 @@ Digital, Computer, Web and Networking field around the globe.</p>
         <div class="newsletter">
           <h6>newsletter</h6>
           <p>enter your email address below to subscribe to our newsletter<br>
-          and keep up to date with discounts and special offers</p>    
-          <input type="email" name="email" placeholder="user@example.com">
+          and keep up to date with discounts and special offers</p> 
+          <form method="POST" asp-controller="Home" asp-action="Subscribe">
+              <input type="email" name="email" id="email" placeholder="user@example.com">
           <button>Subscribe</button>
+          </form>   
+          
           <p>follow us on social networks</p>
           <a href=""><i class="bx bxl-facebook"></i></a>
           <a href=""><i class="bx bxl-instagram"></i></a>
+          <a href=""><i class="bx bxl-youtube"></i></a>
+          <a href=""><i class="bx bxl-twitter"></i></a>
         </div>
       </footer>
       <div class="footer-2">

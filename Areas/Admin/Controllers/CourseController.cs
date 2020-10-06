@@ -24,7 +24,7 @@ namespace TBSTech.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            var data = _context.Courses.Include(x=>x.CourseTimes).ToList();
+            var data = _context.Courses.ToList();
             return View(data);
         }
         public IActionResult New()
@@ -40,7 +40,7 @@ namespace TBSTech.Areas.Admin.Controllers
             
             if (message.Equals("Update"))
             {
-                string oldImage = _courseRepo.GetSingle(x => x.Id == model.Id).ImageUrl;
+                string oldImage = _context.Courses.AsNoTracking().FirstOrDefault(x => x.Id == model.Id).ImageUrl;
                 if (file != null)
                 {
                     Console.WriteLine(oldImage);

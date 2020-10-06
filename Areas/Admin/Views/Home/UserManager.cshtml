@@ -1,0 +1,22 @@
+@model TBSTech.Models.User
+
+<form method="POST" asp-action="UserManager" asp-controller="Home" enctype="multipart/form-data"> 
+            <div class="card-body">
+              
+              <input type="hidden" value ="@ViewBag.Message" name="message" id="message"class="form-control" />
+              
+             
+              <div class="form-group">
+                <label asp-for="Username">User Name</label>
+                <input type="text" asp-for="Username" id="inputName" class="form-control">
+              </div>
+               <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" id="inputDescription" class="form-control">
+              </div>
+              <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" id="inputDescription" class="form-control">
+              </div>
+
+</form>

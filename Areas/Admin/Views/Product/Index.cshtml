@@ -66,9 +66,7 @@
                       <td>
                               @item.ProductName
                           <br/>
-                          <small>
-                              @item.CreatedAt
-                          </small>
+                         
                       </td>
                       <td>
                           <img src="~/ProductImages/@item.ImageUrl" style="border-radius:50%;object-fit:cover;" width="150px" height="150px">
@@ -80,7 +78,7 @@
                       </td>
                       <td  style="text-align:justify;">
                           <small>
-                          @Html.Raw(item.Description.Length>150? item.Description.Substring(0,149): item.Description)
+                          @Html.Raw(item.Description.Length>200? item.Description.Substring(0,199): item.Description)
                           </small>
                       </td>
                       <td>

@@ -69,10 +69,11 @@ namespace TBSTech.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Update(int id, IFormFile file)
+        public IActionResult Update(int id,IFormFile file)
         {
-            var data = _serviceRepo.GetSingle(x=>x.Id ==id);
-            return RedirectToAction(nameof(Index),data);
+              ViewBag.Message = "Update";
+            var data = _serviceRepo.GetSingle(x => x.Id == id);
+            return View(nameof(New), data);
         }
           public IActionResult Delete(int id, IFormFile file)
         {

@@ -42,9 +42,10 @@
                 <label asp-for="ServiceName">Service Name</label>
                 <input type="text" asp-for="ServiceName" id="inputName" class="form-control">
               </div>
-              <div class="form-group">
-                <label asp-for="Description">Service Description</label>
-                <textarea id="editor" asp-for="Description"  class="form-control"></textarea>
+               <div class="form-group">
+                 <label asp-for="Description">Service Description</label>
+                <textarea asp-for="Description" class="textarea" placeholder="Place some text here"
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
               </div>
               <div class="form-group">
                 <label >Service Image</label>
@@ -66,12 +67,10 @@
   </div>
   <!-- /.content-wrapper -->
     @section scripts {
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="~/lib/Trumbowyg-master/dist/trumbowyg.min.js"></script>
-  <script>
-    $('#editor').trumbowyg();
-    </script>
-    @* // class
-    // id
-    // nav html element *@
+    <script> 
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
+</script>
     }

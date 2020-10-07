@@ -15,7 +15,7 @@ namespace TBSTech.Areas.Admin.Controllers
     public class VideoController : BaseController
     {
         private readonly IVideoRepository _videoRepo;
-        public VideoController(IVideoRepository videoRepo,IToastNotification _clientNotification ) : base(_clientNotification)
+        public VideoController(IVideoRepository videoRepo, IToastNotification _clientNotification) : base(_clientNotification)
         {
             _videoRepo = videoRepo;
 
@@ -32,38 +32,41 @@ namespace TBSTech.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult New(Video model,IFormFile file,string message )
+        public IActionResult New(Video model, IFormFile file, string message)
         {
             string folderName = "Videos";
             string newVideo;
-             if (message.Equals("Update"))
+            if (message.Equals("Update"))
             {
                 string oldVideo = _videoRepo.GetSingle(x => x.Id == model.Id).VideoUrl;
                 if (file != null)
                 {
 
-                    
+
                     string fileName = Guid.NewGuid().ToString() + file.FileName;
                     newVideo = fileName;
                     UpdatePhoto(file, folderName, fileName, oldVideo);
                     model.VideoUrl = newVideo;
 
                     _videoRepo.Update(model);
-                }else{
-                model.VideoUrl = oldVideo;
-                _videoRepo.Update(model);
+                }
+                else
+                {
+                    model.VideoUrl = oldVideo;
+                    _videoRepo.Update(model);
                 }
             }
             else if (message.Equals("New"))
             {
-                if(file!=null)
+                if (file != null)
                 {
-                string fileName = Guid.NewGuid().ToString() + file.FileName;
+                    string fileName = Guid.NewGuid().ToString() + file.FileName;
 
-                model.VideoUrl = UploadPhoto(file, folderName,fileName);
-                _videoRepo.Insert(model);
+                    model.VideoUrl = UploadPhoto(file, folderName, fileName);
+                    _videoRepo.Insert(model);
                 }
-                else{
+                else
+                {
                     photoNotify();
                     ViewBag.Message = "New";
                     return View(model);
@@ -76,13 +79,13 @@ namespace TBSTech.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-         public IActionResult Update(int id,IFormFile file)
+        public IActionResult Update(int id, IFormFile file)
         {
             ViewBag.Message = "Update";
             var data = _videoRepo.GetSingle(x => x.Id == id);
             return View(nameof(New), data);
         }
-          public IActionResult Delete(int id, IFormFile file)
+        public IActionResult Delete(int id, IFormFile file)
         {
             string folderName = "Videos";
             var courseToDelete = _videoRepo.GetSingle(x => x.Id == id);

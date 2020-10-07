@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using TBSTech.Repository;
 using ClientNotifications.ServiceExtensions;
 using NToastNotify;
+using TBSTech.Models;
 
 namespace TBSTech
 {
@@ -33,7 +34,7 @@ namespace TBSTech
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
            services.AddRazorPages();

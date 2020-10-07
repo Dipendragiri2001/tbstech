@@ -1,22 +1,98 @@
-@model TBSTech.Models.User
+@model List<TBSTech.Models.ApplicationUser>
 
-<form method="POST" asp-action="NewUser" asp-controller="Home" enctype="multipart/form-data"> 
-            <div class="card-body">
-              
-              <input type="hidden" value ="@ViewBag.Message" name="message" id="message"class="form-control" />
-              
-             
-              <div class="form-group">
-                <label asp-for="Username">User Name</label>
-                <input type="text" asp-for="Username" id="inputName" class="form-control">
-              </div>
-               <div class="form-group">
-                <label asp-for="Email">Email</label>
-                <input asp-for="Email" id="inputDescription" class="form-control">
-              </div>
-              <div class="form-group">
-                <label asp-for="Password">Password</label>
-                <input asp-for="Password" id="inputDescription" class="form-control">
-              </div>
+@{
+    var N=0;
+}
+ <!-- Content Wrapper. Contains page content -->
 
-</form>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Product</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Product</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+<div class="card">
+        <div class="card-header" >
+          <h3 class="card-title">Product</h3>
+          <a asp-controller="Product" asp-action="New" style="background-color:#007bff;text-align:center;float:right;color:white;width:150px;border-radius:20px;cursor:pointer;padding:10px;">Add Product</a>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-striped projects">
+              <thead>
+                  <tr>
+                      <th style="width: 1%">
+                         #
+                      </th>
+                      <th style="width: 10%">
+                         User Name
+                      </th>
+                      <th style="width: 15%;">
+                          Email
+                      </th>
+                    
+                    
+                      <th style="width: 10%">
+                      </th>
+                  </tr>
+              </thead>
+      <!-- Default box -->
+      @foreach (var item in Model)
+      {
+          N++;
+      
+      
+              <tbody>
+                  <tr>
+                      <td>
+                          @N
+                      </td>
+                      <td>
+                              @item.UserName
+                          <br/>
+                         
+                      </td>
+                      
+                       <td  style="text-align:justify;">
+                          <small>
+                          @item.Email
+                          </small>
+                      </td>
+                  
+                      <td>
+                          <a class="btn btn-info btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
+
+                              
+                             <b>+</b> Edit&nbsp;&nbsp;&nbsp;&nbsp;
+                          </a>
+                          <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id" style="margin-bottom: 5px;border-radius:0;">
+                              
+                             <b>-</b> Delete
+                          </a>
+                      </td>
+                  </tr>
+                  
+              </tbody>
+        
+      
+      }
+        </table>
+        </div>
+   
+      </div>
+    </section>
+    <!-- /.content -->
+
+  <!-- /.content-wrapper -->

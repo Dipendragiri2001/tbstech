@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.UI.V3.Pages.Account.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using TBSTech.Models;
 using TBSTech.ViewModels;
 
 namespace TBSTech.Areas.Admin.Controllers
@@ -11,13 +12,13 @@ namespace TBSTech.Areas.Admin.Controllers
     [Area("Admin")]
     public class PasswordController:Controller
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public PasswordController(SignInManager<IdentityUser> signInManager, 
+        public PasswordController(SignInManager<ApplicationUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<IdentityUser> userManager)
+            UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;

@@ -79,7 +79,7 @@ namespace TBSTech.Areas.Admin.Controllers
 
             await _userManager.CreateAsync(newUser,model.Password);
 
-            return View(nameof(UserManager));
+            return RedirectToAction(nameof(UserManager));
         }
 
         public IActionResult Delete(string id)

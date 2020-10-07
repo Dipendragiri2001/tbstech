@@ -121,7 +121,7 @@ namespace TBSTech.Controllers
             try
             {
                 // Credentials
-                var credentials = new NetworkCredential("dipendragiri2002@gmail.com", "dipendra2001");
+                var credentials = new NetworkCredential("tbstech.net@gmail.com", "password2001?");
                 // Mail message
                 var mail = new MailMessage()
                 {
@@ -130,7 +130,7 @@ namespace TBSTech.Controllers
                     Body = Message
                 };
                 mail.IsBodyHtml = true;
-                mail.To.Add(new MailAddress("komalshres@gmail.com"));
+                mail.To.Add(new MailAddress("dipendragiri2001@gmail.com"));
 
                 var client = new SmtpClient()
                 {
